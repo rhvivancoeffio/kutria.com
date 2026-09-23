@@ -1,0 +1,14 @@
+name: generate_product_images
+description: >
+  Genera 1 imagen de producto ecommerce (foto de catálogo) y la guarda como attachment.
+  Requiere AzureOpenAI:ImageDeployment configurado.
+mcp: false
+timeout_ms: 120000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    name: { type: string }
+    description: { type: string }
+    count: { type: integer }
+  required: [name]

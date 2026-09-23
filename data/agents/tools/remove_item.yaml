@@ -1,0 +1,11 @@
+name: remove_item
+description: Elimina un ítem del carrito por item_id (DELETE /Carts/{id}/items/{itemId}).
+mcp: true
+timeout_ms: 5000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    item_id: { type: string }
+    cart_id: { type: string }
+  required: [item_id]

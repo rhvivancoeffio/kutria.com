@@ -1,0 +1,28 @@
+key: category-manager
+version: 1.0.0
+kind: conversational
+name: Category Manager
+description: Gestiona categorías del catálogo Gravity (listar, crear, actualizar, eliminar).
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.2
+  max_tokens: 700
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: category_list
+    timeout_ms: 5000
+  - name: category_create
+    side_effect: true
+    timeout_ms: 8000
+  - name: category_update
+    side_effect: true
+    timeout_ms: 8000
+  - name: category_delete
+    side_effect: true
+    timeout_ms: 8000

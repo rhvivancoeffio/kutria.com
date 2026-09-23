@@ -1,0 +1,12 @@
+name: check_carrier
+description: >
+  Check carrier status for an order.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties:
+    orderId: { type: string }
+  required: [orderId]

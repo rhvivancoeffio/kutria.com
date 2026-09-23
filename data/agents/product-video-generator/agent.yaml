@@ -1,0 +1,20 @@
+key: product-video-generator
+version: 1.0.0
+kind: conversational
+name: Product Video Generator
+description: >
+  Genera guion UGC stub para video de producto (hooks + script). No renderiza video real.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.4
+  max_tokens: 1000
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: generate_product_video
+    timeout_ms: 30000

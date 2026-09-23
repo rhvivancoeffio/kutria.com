@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["order_id", "stock_reserved", "label_created", "status"],
+  "properties": {
+    "order_id": { "type": "string" },
+    "stock_reserved": { "type": "boolean" },
+    "label_created": { "type": "boolean" },
+    "status": { "type": "string" }
+  }
+}

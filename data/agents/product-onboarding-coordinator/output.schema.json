@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "draft"],
+  "properties": {
+    "message": { "type": "string" },
+    "draft": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand", "category", "product"],
+      "properties": {
+        "brand": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "is_new"],
+          "properties": {
+            "name": { "type": "string" },
+            "is_new": { "type": "boolean" },
+            "id": { "type": ["string", "null"] }
+          }
+        },
+        "category": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "is_new"],
+          "properties": {
+            "name": { "type": "string" },
+            "is_new": { "type": "boolean" },
+            "id": { "type": ["string", "null"] }
+          }
+        },
+        "product": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title"],
+          "properties": {
+            "title": { "type": "string" },
+            "image_url": { "type": ["string", "null"] }
+          }
+        }
+      }
+    }
+  }
+}

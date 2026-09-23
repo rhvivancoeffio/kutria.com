@@ -1,0 +1,65 @@
+integration:
+  key: "Shopify"
+  type: api
+  integrationType: Shops
+  name: Shopify
+  description: Conecta con tu tienda Shopify para consultar productos, órdenes y clientes.
+  logoUrl: /logos/shopify.png
+  documentationUrl: https://shopify.dev/docs/api
+  settings:
+    # MeetGravity Providers/availables required keys (mapped 1:1)
+    - key: Shop
+      label: Tienda
+      type: text
+      required: true
+      placeholder: mystore
+      help: Nombre de la tienda Shopify (ej. mystore). Se usará como mystore.myshopify.com
+    - key: IsIntegration
+      label: ¿Es Integration?
+      type: list
+      required: true
+      default: "true"
+      options:
+        - value: "true"
+          label: "Sí"
+        - value: "false"
+          label: "No"
+      help: Marca la conexión como integración en MeetGravity.
+    - key: CountryIsoCode
+      label: País (Country ISO Code)
+      type: list
+      required: true
+      options:
+        - value: PER
+          label: PER
+        - value: COL
+          label: COL
+        - value: ECU
+          label: ECU
+        - value: MEX
+          label: MEX
+        - value: CHL
+          label: CHL
+        - value: BOL
+          label: BOL
+        - value: ARG
+          label: ARG
+    - key: CurrencyIsoCode
+      label: Moneda (Currency ISO Code)
+      type: list
+      required: true
+      options:
+        - value: PEN
+          label: PEN
+        - value: COP
+          label: COP
+        - value: MXN
+          label: MXN
+        - value: CLP
+          label: CLP
+        - value: USD
+          label: USD
+        - value: BOP
+          label: BOP
+        - value: ARS
+          label: ARS

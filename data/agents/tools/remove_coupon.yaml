@@ -1,0 +1,10 @@
+name: remove_coupon
+description: Quita el cupón del carrito (DELETE /Carts/{id}/coupons).
+mcp: true
+timeout_ms: 5000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    cart_id: { type: string }
+  required: []

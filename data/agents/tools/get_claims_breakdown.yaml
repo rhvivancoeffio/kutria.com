@@ -1,0 +1,11 @@
+name: get_claims_breakdown
+description: >
+  Read the claims breakdown.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties: {}
+  required: []

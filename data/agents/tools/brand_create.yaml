@@ -1,0 +1,12 @@
+name: brand_create
+description: Crea una marca en Gravity Headless (POST /Brands).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    name: { type: string, description: "Nombre de la marca" }
+    description: { type: string }
+    image_url: { type: string }
+  required: [name]

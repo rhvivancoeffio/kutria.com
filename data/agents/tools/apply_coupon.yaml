@@ -1,0 +1,11 @@
+name: apply_coupon
+description: Aplica un cupón al carrito (PUT /Carts/{id}/coupons).
+mcp: true
+timeout_ms: 5000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    coupon_code: { type: string }
+    cart_id: { type: string }
+  required: [coupon_code]

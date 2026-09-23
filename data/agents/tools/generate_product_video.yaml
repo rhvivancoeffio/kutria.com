@@ -1,0 +1,13 @@
+name: generate_product_video
+description: >
+  Genera guion UGC stub (jobId, script, hooks) para video de producto. No renderiza video.
+mcp: false
+timeout_ms: 30000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    name: { type: string }
+    description: { type: string }
+    image_url: { type: string }
+  required: [name]

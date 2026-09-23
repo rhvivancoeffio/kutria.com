@@ -1,0 +1,10 @@
+name: cart_checkout
+description: Genera checkout a partir del carrito (POST /Carts/{id}/checkout). No confirma el pago.
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    cart_id: { type: string }
+  required: []

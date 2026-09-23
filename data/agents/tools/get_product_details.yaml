@@ -1,0 +1,12 @@
+name: get_product_details
+description: >
+  Detalle de un producto ya elegido. Requiere product_id de un search o compare anterior. Si solo hay un nombre, llamar search_products. No acepta un nombre.
+mcp: true
+timeout_ms: 1000
+side_effect: false
+input_schema:
+
+  type: object
+  properties:
+    product_id: { type: string, description: "ID del producto" }
+  required: [product_id]

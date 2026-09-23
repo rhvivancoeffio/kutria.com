@@ -1,0 +1,17 @@
+name: add_item
+description: >
+  Agrega un SKU al carrito Gravity (POST /Carts/{id}/items; crea carrito si no hay).
+  Usa sku_id y seller_id EXACTOS del hit de search_products (campos sku_id y seller_id del índice).
+  No uses product_id como sku_id.
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    sku_id: { type: string, description: "Valor sku_id del índice Azure/Qdrant (no product_id)." }
+    quantity: { type: integer }
+    seller_id: { type: string, description: "Valor seller_id del índice Azure/Qdrant." }
+    cart_id: { type: string }
+    postal_code: { type: string }
+  required: [sku_id, quantity, seller_id]

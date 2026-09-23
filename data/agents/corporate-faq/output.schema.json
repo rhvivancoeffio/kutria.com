@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "found", "policy_id", "source_url"],
+  "properties": {
+    "message": { "type": "string" },
+    "found": { "type": "boolean" },
+    "policy_id": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"] }
+  }
+}

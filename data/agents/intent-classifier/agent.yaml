@@ -1,0 +1,17 @@
+key: intent-classifier
+version: 1.0.0
+kind: router
+name: Buyer Intent Classifier
+description: Clasifica el mensaje del comprador en un intent estructurado para el switch-router. No habla con el cliente ni llama tools.
+audience: buyer
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0
+  max_tokens: 200
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools: []

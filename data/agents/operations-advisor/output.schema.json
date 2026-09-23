@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "what", "why", "impact", "proposal"],
+  "properties": {
+    "message": { "type": "string" },
+    "what": { "type": ["string", "null"] },
+    "why": { "type": ["string", "null"] },
+    "impact": { "type": ["string", "null"] },
+    "proposal": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["title", "action"],
+      "properties": {
+        "title": { "type": "string" },
+        "action": { "type": "string" }
+      }
+    }
+  }
+}

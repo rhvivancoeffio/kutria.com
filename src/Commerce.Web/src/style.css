@@ -1,0 +1,383 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kutria-bg: #0a0a0a;
+  --kutria-cyan: #00f5ff;
+  --kutria-gray: #a1a1aa;
+  --kutria-border: #27272a;
+  --kutria-success: #22c55e;
+  --kutria-warning: #eab308;
+  --commerce-ink-950: #0a0a0a;
+  --commerce-ink-900: #0f0f0f;
+  --commerce-ink-850: #111111;
+  --commerce-ink-800: #121212;
+  --commerce-ink-750: #141414;
+  --commerce-ink-700: #161616;
+  --commerce-ink-600: #1a1a1a;
+  --commerce-ink-500: #2a2a2a;
+  --commerce-primary: #00f5ff;
+  --commerce-primary-hover: #7dfff8;
+  --commerce-primary-text: #0b7c82;
+  --commerce-primary-text-hover: #0c5c60;
+  --commerce-accent: #8b5cf6;
+}
+
+html.dark {
+  --commerce-primary-text: #7dfff8;
+  --commerce-primary-text-hover: #00f5ff;
+}
+
+@layer base {
+  html {
+    background-color: #f4f4f5;
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark {
+    background-color: #0a0a0a;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply text-gray-900 antialiased;
+    background-color: #f4f4f5;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  html.dark body {
+    background-color: var(--kutria-bg);
+    color: #fff;
+  }
+
+  html.dark ::selection {
+    background-color: rgba(0, 245, 255, 0.28);
+    color: #fff;
+  }
+
+  /* Kutria surfaces for existing views that still use gray dark utilities. */
+  html.dark .dark\:bg-gray-900 {
+    background-color: #0a0a0a;
+  }
+  html.dark .dark\:bg-gray-800 {
+    background-color: #111111;
+  }
+  html.dark .dark\:bg-gray-700 {
+    background-color: #161616;
+  }
+  html.dark .dark\:border-gray-700,
+  html.dark .dark\:border-gray-600 {
+    border-color: #27272a;
+  }
+
+  h1,
+  h2,
+  .display {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .kutria-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* Kutria CTA: cyan fill + black label. Gradient only on the K mark. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight transition duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+    background-color: #00f5ff;
+    color: #0a0a0a;
+  }
+  .btn-primary:hover {
+    background-color: #7dfff8;
+  }
+  .btn-primary:disabled:hover {
+    background-color: var(--commerce-primary);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+    border: 1px solid #d4d4d8;
+    background-color: #fff;
+    color: #18181b;
+  }
+  .btn-secondary:hover {
+    border-color: #00b8c4;
+    background-color: #f4f4f5;
+  }
+  html.dark .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.36);
+    background-color: #2c2c31;
+    color: #fafafa;
+  }
+  html.dark .btn-secondary:hover {
+    border-color: rgba(0, 245, 255, 0.55);
+    background-color: #3a3a40;
+    color: #fff;
+  }
+  .btn-secondary:disabled:hover {
+    border-color: #d4d4d8;
+    background-color: #fff;
+  }
+  html.dark .btn-secondary:disabled:hover {
+    border-color: rgba(255, 255, 255, 0.36);
+    background-color: #2c2c31;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition;
+    border: 1px solid #d4d4d8;
+    background-color: transparent;
+    color: #3f3f46;
+  }
+  .btn-ghost:hover {
+    border-color: #a1a1aa;
+    background-color: #f4f4f5;
+    color: #18181b;
+  }
+  html.dark .btn-ghost {
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #f4f4f5;
+  }
+  html.dark .btn-ghost:hover {
+    border-color: rgba(0, 245, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+
+  .card {
+    @apply rounded-[18px] border border-gray-200 bg-white p-6 shadow-sm;
+  }
+  html.dark .card {
+    border-color: var(--commerce-ink-700);
+    background-color: var(--commerce-ink-900);
+    box-shadow: none;
+  }
+
+  .card-hover {
+    @apply transition-colors;
+  }
+  .card-hover:hover {
+    border-color: rgba(0, 245, 255, 0.35);
+    background-color: rgba(0, 245, 255, 0.06);
+  }
+
+  .card-add-hover {
+    @apply transition-colors;
+  }
+  .card-add-hover:hover {
+    border-color: rgba(0, 245, 255, 0.35);
+    background-color: rgba(0, 245, 255, 0.06);
+    color: var(--commerce-primary-text);
+  }
+
+  .input-field {
+    @apply block w-full rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm text-gray-900 focus:ring-2;
+  }
+  .input-field:focus {
+    border-color: var(--commerce-primary);
+    --tw-ring-color: rgba(0, 245, 255, 0.45);
+  }
+  html.dark .input-field {
+    border-color: var(--commerce-ink-600);
+    background-color: var(--commerce-ink-800);
+    color: #fff;
+  }
+
+  .admin-surface {
+    @apply rounded-xl border border-gray-200 bg-white;
+  }
+  html.dark .admin-surface {
+    border-color: var(--commerce-ink-600);
+    background-color: var(--commerce-ink-800);
+  }
+  .admin-surface--interactive {
+    @apply transition-colors duration-150 ease-out;
+  }
+  .admin-surface--interactive:hover {
+    border-color: rgba(0, 245, 255, 0.35);
+    background-color: rgba(0, 245, 255, 0.06);
+  }
+  .admin-card {
+    @apply admin-surface admin-surface--interactive;
+  }
+  .admin-empty-state {
+    @apply admin-surface px-4 py-12 text-center sm:py-16;
+  }
+  .admin-empty-state--compact {
+    @apply py-10 sm:py-12;
+  }
+
+  .commerce-chip {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-medium tracking-[0.12em];
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    background-color: rgba(0, 245, 255, 0.07);
+    color: var(--commerce-primary);
+  }
+
+  .commerce-section-label {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em];
+    color: var(--commerce-primary);
+  }
+
+  .form-actions-footer {
+    @apply flex flex-col gap-3 border-t border-gray-200 bg-gray-50 px-6 py-4;
+    @apply sm:flex-row sm:flex-wrap sm:justify-end;
+  }
+  html.dark .form-actions-footer {
+    border-color: var(--commerce-ink-600);
+    background-color: rgba(18, 18, 18, 0.8);
+  }
+
+  .form-actions-footer .btn-primary,
+  .form-actions-footer .btn-secondary {
+    @apply inline-flex w-full items-center justify-center rounded-lg text-center sm:w-auto;
+  }
+
+  .form-actions-footer--between {
+    @apply sm:justify-between;
+  }
+
+  .form-actions-footer__group {
+    @apply flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-2;
+  }
+
+  .form-actions-footer__group--end {
+    @apply sm:justify-end;
+  }
+}
+
+/* Cyan CTAs keep black labels even when a view adds text-white. */
+.bg-primary-500,
+.bg-primary-600,
+.bg-primary-700,
+.hover\:bg-primary-700:hover {
+  background-color: #00f5ff;
+  color: #0a0a0a;
+}
+
+.hover\:bg-primary-700:hover {
+  background-color: #7dfff8;
+}
+
+/*
+ * Brand cyan (#00F5FF) is fine on dark surfaces, but fails as link text on white.
+ * Keep fills/borders bright; darken light-theme text utilities only.
+ */
+html:not(.dark) :is(
+  .text-primary-400,
+  .text-primary-500,
+  .text-primary-600,
+  .text-primary-700
+) {
+  color: var(--commerce-primary-text);
+}
+
+html:not(.dark) :is(
+  .hover\:text-primary-400:hover,
+  .hover\:text-primary-500:hover,
+  .hover\:text-primary-600:hover,
+  .hover\:text-primary-700:hover
+) {
+  color: var(--commerce-primary-text-hover);
+}
+
+html:not(.dark) .group:hover :is(
+  .group-hover\:text-primary-400,
+  .group-hover\:text-primary-500,
+  .group-hover\:text-primary-600,
+  .group-hover\:text-primary-700
+) {
+  color: var(--commerce-primary-text-hover);
+}
+
+html:not(.dark) :is(
+  .border-primary-500,
+  .border-primary-600,
+  .border-b-primary-600
+) {
+  border-color: var(--commerce-primary-text);
+}
+
+/*
+ * Dark surfaces remap gray-700/800 to #111–#161 and borders to #27272a.
+ * Secondary actions that still use those utilities vanish into the page.
+ * Scope to pill/rounded CTAs only — not menu rows (px-4 + dark:text-gray-300).
+ */
+html.dark :is(button, a).dark\:bg-gray-800,
+html.dark :is(button, a).dark\:bg-gray-700 {
+  background-color: #2c2c31;
+  color: #fafafa;
+}
+
+html.dark :is(button, a).dark\:border-gray-600,
+html.dark :is(button, a).dark\:border-gray-700,
+html.dark :is(button, a).dark\:border-gray-500 {
+  border-color: rgba(255, 255, 255, 0.36);
+}
+
+html.dark :is(button, a):is(.rounded-full, .rounded-xl):is(.px-4, .px-6, .px-8):is(
+    .dark\:text-gray-300,
+    .dark\:text-gray-200,
+    .dark\:text-gray-400
+  ) {
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  background-color: #2c2c31;
+  color: #fafafa;
+}
+
+html.dark :is(button, a):is(.dark\:bg-gray-800, .dark\:bg-gray-700):is(
+    .dark\:hover\:bg-gray-600,
+    .dark\:hover\:bg-gray-700,
+    .dark\:hover\:bg-gray-800,
+    .hover\:bg-gray-50
+  ):hover,
+html.dark :is(button, a):is(.rounded-full, .rounded-xl):is(.px-4, .px-6, .px-8):is(
+    .dark\:text-gray-300,
+    .dark\:text-gray-200,
+    .dark\:text-gray-400
+  ):hover {
+  background-color: #3a3a40;
+  border-color: rgba(0, 245, 255, 0.5);
+  color: #fff;
+}
+
+/*
+ * Light theme still inherited white body text, and html kept color-scheme: dark.
+ * Inputs ended up with light text on a white field.
+ */
+html:not(.dark) :is(
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='file']):not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']),
+  textarea,
+  select
+) {
+  background-color: #fff;
+  color: #111827;
+  caret-color: #111827;
+  -webkit-text-fill-color: #111827;
+}
+
+html:not(.dark) :is(input, textarea)::placeholder {
+  color: #6b7280;
+  -webkit-text-fill-color: #6b7280;
+}
+
+html:not(.dark) select option {
+  background-color: #fff;
+  color: #111827;
+}

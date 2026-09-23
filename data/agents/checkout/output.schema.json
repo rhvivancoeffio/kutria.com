@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "draft_id", "payment_url", "total", "currency", "items", "delivery_estimate", "stock_reserved_minutes"],
+  "properties": {
+    "message": { "type": "string" },
+    "draft_id": { "type": ["string", "null"] },
+    "payment_url": { "type": ["string", "null"] },
+    "total": { "type": ["number", "null"] },
+    "currency": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sku", "name", "qty"],
+        "properties": {
+          "sku": { "type": "string" },
+          "name": { "type": "string" },
+          "qty": { "type": "integer" }
+        }
+      }
+    },
+    "delivery_estimate": { "type": ["string", "null"] },
+    "stock_reserved_minutes": { "type": ["integer", "null"] }
+  }
+}

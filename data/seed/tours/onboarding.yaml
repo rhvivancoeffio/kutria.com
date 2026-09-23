@@ -1,0 +1,35 @@
+# Tour de onboarding — Commerce
+# Guía: workspace → integración → cerebro (políticas) → plan y facturación
+
+id: onboarding
+name: Configuración inicial
+description: Configura tu plataforma en 4 pasos para preparar el workspace, conectar tu tienda, cargar el cerebro de políticas y revisar tu plan.
+
+steps:
+  - id: workspace
+    order: 1
+    title: Crea o selecciona un workspace
+    description: El workspace aísla catálogo, integraciones y datos. Usa el selector del encabezado o gestiona workspaces desde esta sección.
+    route: /admin/workspaces
+    routeLabel: Ir a workspaces
+
+  - id: integration
+    order: 2
+    title: Conecta una integración
+    description: Conecta tu tienda (VTEX, Shopify, WooCommerce o Gravity) para ingerir catálogo y pedidos.
+    route: /admin/integraciones
+    routeLabel: Ir a integraciones
+
+  - id: policies
+    order: 3
+    title: Configura el cerebro
+    description: Sube políticas o documentos (PDF, Word, TXT) para que los agentes respondan con el conocimiento de tu marca.
+    route: /admin/policies
+    routeLabel: Ir a cerebro
+
+  - id: billing
+    order: 4
+    title: Revisa tu plan y uso
+    description: Consulta tu consumo y el plan contratado. Puedes cambiar de plan cuando lo necesites.
+    route: /admin/billing
+    routeLabel: Ir a facturación

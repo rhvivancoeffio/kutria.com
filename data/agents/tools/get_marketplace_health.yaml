@@ -1,0 +1,11 @@
+name: get_marketplace_health
+description: >
+  Read marketplace health.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties: {}
+  required: []

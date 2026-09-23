@@ -1,0 +1,14 @@
+name: propose_fix
+description: >
+  Create an operational fix proposal.
+mcp: true
+timeout_ms: 3000
+side_effect: true
+input_schema:
+
+  type: object
+  properties:
+    title: { type: string }
+    action: { type: string }
+    impact: { type: string }
+  required: [title, action, impact]

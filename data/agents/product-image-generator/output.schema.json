@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "message", "images"],
+  "properties": {
+    "type": { "type": "string", "enum": ["message"] },
+    "message": { "type": "string" },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["attachmentId", "url", "prompt"],
+        "properties": {
+          "attachmentId": { "type": "string" },
+          "url": { "type": "string" },
+          "prompt": { "type": "string" }
+        }
+      }
+    }
+  }
+}

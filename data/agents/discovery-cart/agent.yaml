@@ -1,0 +1,43 @@
+key: discovery-cart
+version: 3.1.0
+kind: conversational
+name: Discovery and Cart
+description: Ayuda al comprador a encontrar, comparar y ver el detalle de productos, y a armar el carrito (crear, agregar, cupones, quitar ítems). Usa search cuando el producto aún no está resuelto. No inventa tools de outfit, presupuesto ni regalo.
+audience: buyer
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.2
+  max_tokens: 2500
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: search_products
+    timeout_ms: 2000
+  - name: compare_products
+    timeout_ms: 2000
+  - name: get_product_details
+    timeout_ms: 1000
+  - name: create_cart
+    side_effect: true
+    timeout_ms: 8000
+  - name: get_cart
+    timeout_ms: 5000
+  - name: add_item
+    side_effect: true
+    timeout_ms: 8000
+  - name: update_item_qty
+    side_effect: true
+    timeout_ms: 8000
+  - name: apply_coupon
+    side_effect: true
+    timeout_ms: 5000
+  - name: remove_coupon
+    side_effect: true
+    timeout_ms: 5000
+  - name: remove_item
+    side_effect: true
+    timeout_ms: 5000

@@ -1,0 +1,12 @@
+name: generate_product_content_from_image
+description: >
+  Analiza imagen de producto (turno o image_url) y genera ficha completa en español.
+mcp: false
+timeout_ms: 60000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    image_url: { type: string, description: "URL de la imagen si no hay attachment en el turno" }
+    hint: { type: string, description: "Hint o nombre breve opcional" }
+  required: []

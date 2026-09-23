@@ -1,0 +1,12 @@
+name: publish_order_fulfilled
+description: >
+  Publish order fulfilled event (workflow).
+mcp: false
+timeout_ms: 3000
+side_effect: true
+input_schema:
+
+  type: object
+  properties:
+    orderId: { type: string }
+  required: [orderId]

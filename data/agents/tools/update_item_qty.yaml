@@ -1,0 +1,16 @@
+name: update_item_qty
+description: >
+  Actualiza cantidad en el carrito (PUT /Carts/{id}/items/qty).
+  Usa sku_id y seller_id del índice (search hit), no product_id.
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    sku_id: { type: string, description: "sku_id del índice Azure/Qdrant." }
+    quantity: { type: integer }
+    seller_id: { type: string, description: "seller_id del índice Azure/Qdrant." }
+    cart_id: { type: string }
+    postal_code: { type: string }
+  required: [sku_id, quantity, seller_id]

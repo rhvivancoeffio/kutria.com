@@ -1,0 +1,10 @@
+name: brand_delete
+description: Elimina una marca en Gravity Headless (DELETE /Brands/{id}).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    brand_id: { type: string }
+  required: [brand_id]

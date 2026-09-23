@@ -1,0 +1,38 @@
+key: checkout
+version: 2.3.0
+kind: conversational
+name: Checkout
+description: Genera checkout a partir del carrito cuando el cliente quiere pagar o finalizar la compra. Nunca confirma el pago.
+audience: buyer
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.1
+  max_tokens: 500
+guardrails:
+  no_invent: true
+  forbidden_phrases:
+    - pago confirmado
+    - pedido pagado
+output:
+  schema_file: output.schema.json
+tools:
+  - name: get_cart
+    timeout_ms: 5000
+  - name: apply_coupon
+    side_effect: true
+    timeout_ms: 5000
+  - name: remove_coupon
+    side_effect: true
+    timeout_ms: 5000
+  - name: cart_checkout
+    side_effect: true
+    timeout_ms: 8000
+    requires:
+      - get_cart
+  - name: create_order_draft
+    side_effect: true
+    timeout_ms: 8000
+    requires:
+      - get_cart

@@ -1,0 +1,11 @@
+name: get_orders_delayed
+description: >
+  List delayed orders.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties: {}
+  required: []

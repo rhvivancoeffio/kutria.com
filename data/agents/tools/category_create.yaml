@@ -1,0 +1,13 @@
+name: category_create
+description: Crea una categoría en Gravity Headless (POST /Categories).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    name: { type: string }
+    slug: { type: string }
+    description: { type: string }
+    parent_category_id: { type: string }
+  required: [name]

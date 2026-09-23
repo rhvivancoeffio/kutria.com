@@ -1,0 +1,12 @@
+name: create_return
+description: >
+  Create a return for an order.
+mcp: true
+timeout_ms: 3000
+side_effect: true
+input_schema:
+
+  type: object
+  properties:
+    orderId: { type: string }
+  required: [orderId]

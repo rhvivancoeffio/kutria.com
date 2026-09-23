@@ -1,0 +1,13 @@
+name: compare_products
+description: >
+  Solo comparación explícita de productos nombrados. No usar para buscar, presupuesto, outfit, regalo ni qué combina.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties:
+    product_names: { type: array, items: { type: string }, description: "Nombres de productos a comparar" }
+    product_ids: { type: array, items: { type: string }, description: "IDs de productos a comparar" }
+  required: []

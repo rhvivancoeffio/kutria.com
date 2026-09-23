@@ -1,0 +1,45 @@
+key: product-manager
+version: 1.1.0
+kind: conversational
+name: Product Manager
+description: >
+  Gestiona productos en Gravity (listar, crear, actualizar, eliminar, publicar).
+  También analiza fotos para alta de producto y resuelve marca/categoría.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.2
+  max_tokens: 800
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: image_analyze
+    timeout_ms: 30000
+  - name: brand_list
+    timeout_ms: 5000
+  - name: brand_create
+    side_effect: true
+    timeout_ms: 8000
+  - name: category_list
+    timeout_ms: 5000
+  - name: category_create
+    side_effect: true
+    timeout_ms: 8000
+  - name: product_create
+    side_effect: true
+    timeout_ms: 10000
+  - name: product_list
+    timeout_ms: 5000
+  - name: product_update
+    side_effect: true
+    timeout_ms: 10000
+  - name: product_delete
+    side_effect: true
+    timeout_ms: 8000
+  - name: product_publish
+    side_effect: true
+    timeout_ms: 8000

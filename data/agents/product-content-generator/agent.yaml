@@ -1,0 +1,21 @@
+key: product-content-generator
+version: 1.0.0
+kind: conversational
+name: Product Content Generator
+description: >
+  Genera o mejora ficha de producto (nombre, descripción, bullets, SEO) a partir del nombre
+  y modos opcionales. Úsalo cuando el usuario pide generar contenido de catálogo sin foto.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.3
+  max_tokens: 1200
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: generate_product_content
+    timeout_ms: 45000

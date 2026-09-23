@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "message", "video"],
+  "properties": {
+    "type": { "type": "string", "enum": ["message"] },
+    "message": { "type": "string" },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jobId", "status", "script", "hooks", "previewUrl"],
+      "properties": {
+        "jobId": { "type": "string" },
+        "status": { "type": "string" },
+        "script": { "type": "string" },
+        "hooks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "previewUrl": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

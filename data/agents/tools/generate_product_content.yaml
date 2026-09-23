@@ -1,0 +1,16 @@
+name: generate_product_content
+description: >
+  Genera o mejora ficha de producto (name, description, bullets, SEO) a partir del nombre
+  y modos opcionales (all | description | bullets | seo).
+mcp: false
+timeout_ms: 45000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    name: { type: string, description: "Nombre o título del producto" }
+    modes:
+      type: array
+      items: { type: string, enum: [all, description, bullets, seo, name] }
+      description: "Campos a generar. Default all."
+  required: [name]

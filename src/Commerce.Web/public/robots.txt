@@ -1,0 +1,18 @@
+# Gravity Channels - robots.txt
+# Permite crawlers de búsqueda y AI (OpenAI, Google, etc.)
+
+User-agent: *
+Allow: /
+
+# OpenAI crawlers - permite indexación para ChatGPT Search
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Sitemap (opcional - crear si hay muchas páginas)
+# Sitemap: https://agentic.meetgravity.io/sitemap.xml

@@ -1,0 +1,18 @@
+# type: api = REST/OpenAPI, mcp = Model Context Protocol
+# Tienda (catálogo/API) + canal de venta: mismo conector en pestañas Tiendas y Canales; marketplaceKey para destinos y pipelines.
+# Cupo de plan: tienda (MaxStores), independiente del cupo de marketplaces externos (MaxChannels).
+# MeetGravity: solo register → login → Organizations → ClientApps (sin Providers/settings).
+# url/apiKey se escriben en SettingsJson al conectar (BaseUrl + clientSecret); no se piden en el form.
+integration:
+  key: "Gravity"
+  type: api
+  isActive: true
+  integrationType: Shops
+  channelMarketplace: true
+  planLimitCountsAsStore: true
+  marketplaceKey: gravity
+  name: Gravity
+  description: Conecta Gravity como tienda (API de catálogo, productos y órdenes) y como canal de venta (destinos, data pipeline y publicación).
+  logoUrl: /logos/gravity.jpeg
+  documentationUrl: https://github.com/minimalgravity
+  settings: []

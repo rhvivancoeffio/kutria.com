@@ -1,0 +1,21 @@
+key: product-image-generator
+version: 1.0.0
+kind: conversational
+name: Product Image Generator
+description: >
+  Genera imágenes de producto para ecommerce (foto de catálogo) a partir del nombre
+  y descripción. Guarda el resultado como attachment y devuelve URLs.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.4
+  max_tokens: 400
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: generate_product_images
+    timeout_ms: 120000

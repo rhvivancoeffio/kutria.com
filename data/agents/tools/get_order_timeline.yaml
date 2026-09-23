@@ -1,0 +1,12 @@
+name: get_order_timeline
+description: >
+  Read an order timeline.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties:
+    orderId: { type: string, description: "Order ID" }
+  required: [orderId]

@@ -1,0 +1,19 @@
+key: fulfillment
+version: 2.2.0
+kind: workflow
+name: Fulfillment
+description: Reserva stock, crea la etiqueta y publica order-fulfilled. Sin LLM.
+queue: order-paid
+publishes:
+  - order-fulfilled
+output:
+  schema_file: output.schema.json
+tools:
+  - name: reserve_stock
+    side_effect: true
+    timeout_ms: 5000
+  - name: create_label
+    side_effect: true
+    timeout_ms: 8000
+  - name: publish_order_fulfilled
+    side_effect: true

@@ -1,0 +1,13 @@
+name: publish_order_paid
+description: >
+  Publish order paid event (workflow).
+mcp: false
+timeout_ms: 3000
+side_effect: true
+input_schema:
+
+  type: object
+  properties:
+    payment_id: { type: string }
+    order_id: { type: string }
+  required: [payment_id, order_id]

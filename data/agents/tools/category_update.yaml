@@ -1,0 +1,14 @@
+name: category_update
+description: Actualiza una categoría en Gravity Headless (PUT /Categories/{id}).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    category_id: { type: string }
+    name: { type: string }
+    slug: { type: string }
+    description: { type: string }
+    parent_category_id: { type: string }
+  required: [category_id, name]

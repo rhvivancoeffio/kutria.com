@@ -1,0 +1,36 @@
+allowlist:
+  - GENDER
+  - AGE_GROUP
+  - COLOR
+  - SIZE
+  - ITEM_CONDITION
+
+key_aliases:
+  GENERO: GENDER
+  GÉNERO: GENDER
+  SEXO: GENDER
+  TALLA: SIZE
+  TALLES: SIZE
+  COLOUR: COLOR
+  CONDICION: ITEM_CONDITION
+  CONDICIÓN: ITEM_CONDITION
+  EDAD: AGE_GROUP
+
+value_aliases:
+  GENDER:
+    hombre: Hombre
+    men: Hombre
+    male: Hombre
+    masculino: Hombre
+    mujer: Mujer
+    women: Mujer
+    woman: Mujer
+    female: Mujer
+    femenino: Mujer
+    unisex: Unisex
+  AGE_GROUP:
+    adultos: Adultos
+    adult: Adultos
+    kids: Niños
+    ninos: Niños
+    niños: Niños

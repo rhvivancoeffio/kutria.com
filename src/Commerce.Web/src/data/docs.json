@@ -1,0 +1,496 @@
+{
+  "nav": {
+    "docs": [
+      "",
+      "primeros-pasos",
+      "conceptos",
+      "glosario"
+    ],
+    "admin": [
+      "",
+      "panel",
+      "integraciones",
+      "api-keys",
+      "miembros",
+      "cuenta-y-facturacion"
+    ],
+    "developers": [
+      "",
+      "api-overview",
+      "autenticacion",
+      "webhooks"
+    ]
+  },
+  "docs": {
+    "intro": {
+      "title": "Documentación TemplateProject",
+      "tagline": "Guía general para usar la aplicación y el panel.",
+      "description": "TemplateProject es una plantilla SaaS: cuenta, espacios de trabajo, integraciones opcionales con sistemas externos, facturación y API. Esta ayuda está escrita en lenguaje claro; las capturas pueden variar según la versión que despliegues.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Primeros pasos",
+          "description": "Desde el primer acceso hasta qué revisar antes de configurar integraciones.",
+          "href": "/docs/primeros-pasos",
+          "icon": "rocket"
+        },
+        {
+          "title": "Conceptos",
+          "description": "Ideas clave: cuenta, workspace, integraciones y seguridad.",
+          "href": "/docs/conceptos",
+          "icon": "book"
+        },
+        {
+          "title": "Admin",
+          "description": "Recorrido del panel: menús y pantallas habituales.",
+          "href": "/docs/admin",
+          "icon": "settings"
+        },
+        {
+          "title": "Developers",
+          "description": "Panorama técnico: API, autenticación y webhooks.",
+          "href": "/docs/developers",
+          "icon": "code"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Lo primero: crear tu cuenta o ingresar",
+          "content": "Registrate desde la pantalla de acceso (o usá una invitación), confirmá el correo si lo piden, e iniciá sesión para ver el panel y los workspaces. El orden recomendado después del login está en la guía enlazada arriba (Enlaces relacionados)."
+        },
+        {
+          "title": "¿Para qué sirve esta plataforma?",
+          "content": "En el día a día podés: (1) administrar tu cuenta y equipo; (2) conectar integraciones permitidas por tu plan; (3) usar el panel para revisar uso, facturación y configuración; (4) si aplica, generar claves API para sistemas automáticos. El detalle depende de cómo personalices esta plantilla."
+        },
+        {
+          "title": "Cómo está organizada esta ayuda",
+          "items": [
+            "Guías generales y vocabulario en lenguaje sencillo.",
+            "Admin: apartados del menú explicados como manual.",
+            "Developers: URL base, seguridad y webhooks para quien integre sistemas externos."
+          ]
+        }
+      ],
+      "callout": {
+        "type": "info",
+        "text": "Si contratás soporte técnico externo, pediles la URL base del API y los encabezados que correspondan a tu ambiente."
+      }
+    },
+    "primeros-pasos": {
+      "title": "Primeros pasos",
+      "description": "El paso 1 es crear tu cuenta (o usar una invitación) e iniciar sesión. El resto asume que ya podés entrar al panel.",
+      "sections": [
+        {
+          "title": "1. Crear cuenta o iniciar sesión",
+          "content": "Desde la página principal tocá Registrarse o Iniciar sesión. Si tu empresa usa inicio de sesión único, puede aparecer un botón para entrar con ese proveedor. Si te piden confirmar el correo, abrí el mensaje y tocá el enlace antes de seguir.",
+          "image": "/docs/screenshots/01-login.png",
+          "imageCaption": "Pantalla de acceso"
+        },
+        {
+          "title": "2. Elegir el espacio de trabajo correcto",
+          "content": "Un espacio de trabajo (workspace) agrupa datos y permisos por unidad de negocio o marca. Si trabajás en varios, usá el selector que indique tu administrador. Si está mal elegido, puede que no veas integraciones o datos que existen en otro espacio."
+        },
+        {
+          "title": "3. Qué hacer después de entrar",
+          "content": "Revisá Uso y límites del plan, confirmá integraciones si tu flujo las requiere, y visitá Miembros o Facturación según tu rol. No hace falta completar todo el primer día: podés volver cuando quieras."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "text": "Si algo no aparece, lo más frecuente es el workspace equivocado o permisos insuficientes. Revisá eso antes de abrir un ticket."
+      }
+    },
+    "conceptos": {
+      "title": "Conceptos",
+      "description": "Términos que vas a ver en el menú y en soporte, en lenguaje cotidiano.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Cuenta y espacio de trabajo (workspace)",
+          "content": "Tu cuenta agrupa facturación, usuarios y acceso al panel. Dentro pueden existir uno o más workspaces para separar datos por marca o equipo. Lo configurado en un workspace no se mezcla con otro."
+        },
+        {
+          "title": "Integración",
+          "content": "Es la conexión autorizada con otra aplicación (tienda, proveedor de identidad, etc.). Sin la integración conectada, no hay sincronización con ese sistema. La configurás desde el panel según lo que habilite tu plan."
+        },
+        {
+          "title": "Clave API (API key)",
+          "content": "Contraseña larga para que programas llamen al API sin usar el navegador. Se crea en Admin → API keys y debe guardarse en un lugar seguro. Detalle en la guía de Admin."
+        },
+        {
+          "title": "Uso y plan",
+          "content": "El panel suele mostrar consumo frente a los límites del plan contratado. Revisalo antes de llegar a un tope o al renovar el servicio."
+        }
+      ]
+    },
+    "glosario": {
+      "title": "Glosario y preguntas frecuentes",
+      "description": "Definiciones cortas y situaciones típicas.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Si tu equipo técnico usa estas palabras",
+          "items": [
+            "Credencial de sesión (JWT): pase temporal que identifica al usuario que inició sesión.",
+            "Clave API: para sistemas automáticos; se crea en Admin → API keys.",
+            "Workspace: identificador del espacio de trabajo en cabeceras o configuración del cliente HTTP."
+          ]
+        },
+        {
+          "title": "¿Dónde cambio mi contraseña o datos de cuenta?",
+          "content": "En Admin → Perfil o Cuenta (según tu versión). Si olvidaste la contraseña, usá recuperación desde la pantalla de inicio de sesión."
+        },
+        {
+          "title": "¿Puedo invitar a otra persona?",
+          "content": "Sí, si tu rol lo permite. En Admin → Miembros podés enviar invitación por correo; la persona acepta el enlace para unirse."
+        }
+      ]
+    }
+  },
+  "admin": {
+    "intro": {
+      "title": "Panel de administración",
+      "tagline": "Lo que podés hacer desde el menú lateral, paso a paso.",
+      "description": "El panel concentra uso del plan, integraciones, claves API, equipo y facturación. El orden de las guías sigue un flujo lógico típico.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Panel y uso",
+          "description": "Consumo del plan y espacios de trabajo.",
+          "href": "/docs/admin/panel",
+          "icon": "settings"
+        },
+        {
+          "title": "Integraciones",
+          "description": "Conectar sistemas externos permitidos por tu plan.",
+          "href": "/docs/admin/integraciones",
+          "icon": "code"
+        },
+        {
+          "title": "API keys",
+          "description": "Claves para que otros sistemas llamen al API de forma segura.",
+          "href": "/docs/admin/api-keys",
+          "icon": "settings"
+        },
+        {
+          "title": "Miembros",
+          "description": "Invitar colegas y gestionar accesos.",
+          "href": "/docs/admin/miembros",
+          "icon": "settings"
+        },
+        {
+          "title": "Cuenta y facturación",
+          "description": "Perfil, plan y pagos.",
+          "href": "/docs/admin/cuenta-y-facturacion",
+          "icon": "settings"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Antes del menú: cuenta e ingreso",
+          "content": "Todas las guías asumen cuenta creada, inicio de sesión y, si aplica, el workspace correcto. Sin eso no vas a ver datos ni API keys útiles."
+        },
+        {
+          "title": "Cómo moverte por el panel",
+          "content": "Tras iniciar sesión verás un menú con las secciones disponibles según tu rol y plan. Si algo no aparece, puede ser permiso o límite del plan."
+        }
+      ],
+      "callout": {
+        "type": "info",
+        "text": "Las capturas son de ejemplo; los textos del menú pueden variar entre versiones."
+      }
+    },
+    "panel": {
+      "title": "Uso y panel",
+      "description": "Pantallas iniciales útiles antes de configurar integraciones.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Pantalla de uso",
+          "content": "En Uso (o equivalente) suele resumirse qué incluye tu plan y el consumo acumulado. Sirve para anticiparte a límites o renovaciones.",
+          "image": "/docs/screenshots/02-AdminUsage.png",
+          "imageCaption": "Resumen de uso y límites del plan"
+        },
+        {
+          "title": "Espacios de trabajo (workspaces)",
+          "content": "Desde Workspaces podés ver o crear espacios según permisos. Antes de cargar datos, confirmá con tu equipo en cuál debés operar; cambiar de espacio cambia lo que ves en pantalla."
+        }
+      ]
+    },
+    "integraciones": {
+      "title": "Integraciones",
+      "description": "Conectar sistemas externos que tu plan y esta instalación expongan.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Ver las conexiones disponibles",
+          "content": "En Integraciones aparecen los conectores habilitados. Las ya vinculadas muestran estado; el resto permite iniciar configuración. Si no ves un sistema, puede no estar en el plan o requerir activación por un administrador.",
+          "image": "/docs/screenshots/03-Integrations.png",
+          "imageCaption": "Listado de integraciones"
+        },
+        {
+          "title": "Conectar paso a paso",
+          "content": "Seguí el asistente del conector (OAuth, formulario o ambos). No cierres ventanas de autorización hasta que indique éxito. Si falla, guardá el mensaje exacto para soporte.",
+          "image": "/docs/screenshots/03.1-Integrations-connect.png.png",
+          "imageCaption": "Inicio del flujo de conexión"
+        },
+        {
+          "title": "Cuando quedó conectada",
+          "content": "Verificá el estado en el listado. Si revocás permisos en el sistema externo, volvé a conectar aquí para evitar errores en automatizaciones.",
+          "image": "/docs/screenshots/03.2-Integrations-connected.png.png",
+          "imageCaption": "Integración lista"
+        }
+      ]
+    },
+    "api-keys": {
+      "title": "Claves de API (API keys)",
+      "description": "Claves largas para que procesos automáticos llamen al API sin abrir el navegador.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Ver las claves existentes",
+          "content": "En API keys verás nombre, fechas y alcance según lo que muestre tu versión. Si la lista está vacía, podés crear una cuando tu equipo de sistemas la necesite.",
+          "image": "/docs/screenshots/08-ApiKeys.png",
+          "imageCaption": "Listado de claves"
+        },
+        {
+          "title": "Crear una clave nueva",
+          "content": "Elegí un nombre descriptivo. Si la pantalla pide alcance (workspace u otros límites), alinealo con lo que vaya a usar la integración. Pedí al desarrollador los requisitos exactos antes de generar la clave.",
+          "image": "/docs/screenshots/08.1-ApiKeys-Create.png",
+          "imageCaption": "Formulario para crear una clave"
+        },
+        {
+          "title": "Copiar y guardar el secreto",
+          "content": "El valor completo suele mostrarse una sola vez. Copialo a un gestor de secretos. Si cerraste sin copiar, revocá esa clave y generá otra.",
+          "image": "/docs/screenshots/08.2-ApiKeys-Created.png",
+          "imageCaption": "Clave recién creada"
+        }
+      ],
+      "callout": {
+        "type": "warning",
+        "text": "Tratá cada API key como una contraseña. Si se filtró, revocála en el panel y creá una nueva."
+      }
+    },
+    "miembros": {
+      "title": "Miembros del equipo",
+      "description": "Quién puede entrar al panel y con qué rol.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Quién puede administrar miembros",
+          "content": "Solo perfiles con permiso suelen poder invitar o quitar personas; el resto solo ve la lista.",
+          "image": "/docs/screenshots/09-Members.png",
+          "imageCaption": "Gestión de miembros"
+        },
+        {
+          "title": "Invitar a alguien nuevo",
+          "content": "Ingresá el correo y el rol. La persona recibirá un enlace para aceptar.",
+          "image": "/docs/screenshots/09.1-Members-Add.png",
+          "imageCaption": "Enviar invitación"
+        },
+        {
+          "title": "Estado de cada persona",
+          "content": "El listado distingue invitaciones pendientes y miembros activos. Los límites de usuarios dependen del plan.",
+          "image": "/docs/screenshots/09.2-Members-List.png",
+          "imageCaption": "Invitaciones y miembros"
+        }
+      ]
+    },
+    "cuenta-y-facturacion": {
+      "title": "Cuenta y facturación",
+      "description": "Perfil, seguridad del acceso y plan.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Tu perfil",
+          "content": "Actualizá nombre visible, correo u opciones de notificación según lo que muestre el producto."
+        },
+        {
+          "title": "Cambiar contraseña",
+          "content": "Usá una contraseña larga y única. Si la olvidaste, usá recuperación en la pantalla de inicio de sesión."
+        },
+        {
+          "title": "Facturación y plan",
+          "content": "Revisá plan actual, método de pago y próximos cargos según tu contrato."
+        },
+        {
+          "title": "Historial de consumo",
+          "content": "Si está habilitado, resume uso relevante para límites o facturación."
+        }
+      ],
+      "callout": {
+        "type": "info",
+        "text": "Los métodos de pago pueden variar según país y acuerdo. Ante diferencias con tu factura, contactá soporte con captura de esta sección."
+      }
+    }
+  },
+  "developers": {
+    "intro": {
+      "title": "Para tu equipo técnico",
+      "tagline": "Cómo otros sistemas se conectan al API.",
+      "description": "Orientación para quien integre ERP, scripts o CI. Si no sos técnico, podés usarla como lista de puntos a validar con sistemas.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        }
+      ],
+      "cards": [
+        {
+          "title": "Panorama de la API",
+          "description": "URL base, Swagger y convenciones generales.",
+          "href": "/docs/developers/api-overview",
+          "icon": "code"
+        },
+        {
+          "title": "Autenticación",
+          "description": "Sesión de usuario, API key y workspace.",
+          "href": "/docs/developers/autenticacion",
+          "icon": "settings"
+        },
+        {
+          "title": "Webhooks",
+          "description": "Cómo sistemas externos notifican eventos a tu backend.",
+          "href": "/docs/developers/webhooks",
+          "icon": "book"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Antes de empezar",
+          "content": "Necesitás la URL base del API del entorno (desarrollo o producción), credenciales acordadas (usuario, API key, etc.) y el identificador de workspace si el API lo exige. La referencia de rutas concreta está en Swagger UI en tu despliegue (ruta típica /swagger)."
+        }
+      ]
+    },
+    "api-overview": {
+      "title": "Panorama de la API",
+      "description": "Referencias para integradores: descubrir y probar endpoints en tu instancia.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        },
+        {
+          "text": "Claves API (panel Admin)",
+          "href": "/docs/admin/api-keys"
+        }
+      ],
+      "sections": [
+        {
+          "title": "URL base",
+          "content": "La URL base depende del despliegue. En desarrollo local suele ser el origen que muestre tu host (por ejemplo https con puerto del API). En producción, usá el dominio que te asigne el equipo de infraestructura. No asumas la misma URL que la del frontend.",
+          "items": [
+            "Ejemplo local típico: https://localhost:7247 (ajustá al puerto real de tu TemplateProject.Api).",
+            "Documentación interactiva: abrí /swagger en el mismo host del API para ver rutas y esquemas.",
+            "Los prefijos de ruta (por ejemplo /api/...) aparecen en Swagger; no los dupliques al armar el cliente HTTP."
+          ]
+        },
+        {
+          "title": "Qué consultar primero",
+          "content": "Usá Swagger como fuente de verdad de métodos HTTP, parámetros y códigos de respuesta. Las guías de esta ayuda no sustituyen el contrato generado por tu build."
+        }
+      ]
+    },
+    "autenticacion": {
+      "title": "Autenticación",
+      "description": "Cómo el backend identifica al cliente y el workspace.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        },
+        {
+          "text": "Crear API keys (panel Admin)",
+          "href": "/docs/admin/api-keys"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Acceso con usuario (Bearer)",
+          "content": "Las rutas pensadas para el navegador o integraciones con sesión envían un token JWT en Authorization: Bearer. El token caduca; renovalo según el flujo de login de tu producto."
+        },
+        {
+          "title": "Espacio de trabajo (workspace)",
+          "content": "Muchas cuentas tienen varios workspaces. Si el API lo requiere, enviá el identificador en el encabezado o ruta que documente Swagger para ese endpoint."
+        },
+        {
+          "title": "API key",
+          "content": "Para automatización, generá una clave en Admin → API keys y enviá el secreto en el encabezado que defina tu API (en instalaciones basadas en esta plantilla suele usarse un encabezado de API key documentado en Swagger). No compartas la clave por canales inseguros."
+        }
+      ],
+      "callout": {
+        "type": "tip",
+        "text": "Probá primero contra el entorno de desarrollo con la misma forma de autenticación que usará producción."
+      }
+    },
+    "webhooks": {
+      "title": "Webhooks (avisos a tu servidor)",
+      "description": "Algunos proveedores externos pueden enviar eventos HTTP a tu API cuando ocurre algo (pago, mensaje, etc.). La ruta y el formato dependen del conector y de cómo configures el despliegue.",
+      "resourceLinks": [
+        {
+          "text": "Primeros pasos — crear cuenta o ingresar al panel",
+          "href": "/docs/primeros-pasos"
+        },
+        {
+          "text": "Integraciones",
+          "href": "/docs/admin/integraciones"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Configuración general",
+          "content": "En el panel del proveedor externo suele indicarse una URL pública HTTPS que recibirá POST (u otros métodos). Esa URL debe apuntar a tu instancia de TemplateProject y al path expuesto por el endpoint correspondiente. Verificá en Swagger las rutas bajo WebHooks o similares."
+        },
+        {
+          "title": "Seguridad y trazabilidad",
+          "content": "Validá firmas o secretos compartidos si el proveedor los ofrece. Para auditoría, tu equipo puede activar logs y retención acorde a políticas internas."
+        }
+      ]
+    }
+  }
+}

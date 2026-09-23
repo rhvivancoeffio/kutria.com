@@ -1,0 +1,18 @@
+key: corporate-faq
+version: 1.0.0
+kind: conversational
+name: Corporate FAQ
+description: El comprador pregunta por la empresa, el grupo, marcas, sedes, historia o FAQ corporativa del texto publicado. No es pedido, devolución, carrito ni checkout.
+audience: buyer
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.2
+  max_tokens: 500
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: search_policies

@@ -1,0 +1,80 @@
+integration:
+  key: "WooCommerce"
+  type: api
+  integrationType: Shops
+  name: WooCommerce
+  description: Conecta con tu tienda WooCommerce para consultar productos, órdenes y catálogo.
+  logoUrl: /logos/woocommerce.png
+  documentationUrl: https://woocommerce.github.io/woocommerce-rest-api-docs/
+  settings:
+    - key: url
+      label: Store URL
+      type: url
+      required: true
+      placeholder: https://mystore.com
+      help: URL base de tu tienda WooCommerce (ej. https://tu-tienda.com)
+    - key: consumerKey
+      label: Consumer Key
+      type: password
+      required: true
+      placeholder: "ck_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      help: Consumer Key de la API WooCommerce (WooCommerce > Ajustes > Avanzado > API REST)
+    - key: consumerSecret
+      label: Consumer Secret
+      type: password
+      required: true
+      placeholder: "********"
+      help: Consumer Secret de la API WooCommerce
+    - key: version
+      label: API Version
+      type: text
+      required: false
+      placeholder: "wc/v3"
+      help: Versión de la API (ej. wc/v3). Opcional, usa wc/v3 por defecto.
+    - key: CountryIsoCode
+      label: País (Country ISO Code)
+      type: list
+      required: true
+      options:
+        - value: PER
+          label: PER
+        - value: COL
+          label: COL
+        - value: ECU
+          label: ECU
+        - value: MEX
+          label: MEX
+        - value: CHL
+          label: CHL
+        - value: BOL
+          label: BOL
+        - value: ARG
+          label: ARG
+    - key: CurrencyIsoCode
+      label: Moneda (Currency ISO Code)
+      type: list
+      required: true
+      options:
+        - value: PEN
+          label: PEN
+        - value: COP
+          label: COP
+        - value: MXN
+          label: MXN
+        - value: CLP
+          label: CLP
+        - value: USD
+          label: USD
+        - value: BOP
+          label: BOP
+        - value: ARG
+          label: ARG
+    - key: CurrencySymbol
+      label: Moneda (Símbolo)
+      type: list
+      required: true
+      options:
+        - value: "S/"
+          label: "S/"
+        - value: "$"
+          label: "$"

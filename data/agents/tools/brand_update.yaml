@@ -1,0 +1,13 @@
+name: brand_update
+description: Actualiza una marca en Gravity Headless (PUT /Brands/{id}).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    brand_id: { type: string }
+    name: { type: string }
+    description: { type: string }
+    image_url: { type: string }
+  required: [brand_id, name]

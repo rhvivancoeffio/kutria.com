@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "order_id", "status", "carrier_status", "delayed", "escalate", "return_id", "policy_id", "source_url"],
+  "properties": {
+    "message": { "type": "string" },
+    "order_id": { "type": ["string", "null"] },
+    "status": { "type": ["string", "null"] },
+    "carrier_status": { "type": ["string", "null"] },
+    "delayed": { "type": "boolean" },
+    "escalate": { "type": "boolean" },
+    "return_id": { "type": ["string", "null"] },
+    "policy_id": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Commerce.Mcp": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5055",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Mcp__PublicBaseUrl": "http://localhost:5055",
+        "Mcp__FrontendBaseUrl": "http://localhost:3000"
+      }
+    }
+  }
+}

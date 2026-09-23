@@ -1,0 +1,17 @@
+name: product_update
+description: Actualiza un producto en Gravity Headless (PUT /Products/{id}).
+mcp: true
+timeout_ms: 10000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    product_id: { type: string }
+    title: { type: string }
+    description: { type: string }
+    brand_id: { type: string }
+    brand_name: { type: string }
+    category_id: { type: string }
+    category_path: { type: string }
+    image_url: { type: string }
+  required: [product_id, title]

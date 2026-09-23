@@ -1,0 +1,11 @@
+name: product_list
+description: Lista productos en Gravity Headless.
+mcp: true
+timeout_ms: 5000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    page: { type: integer }
+    page_size: { type: integer }
+  required: []

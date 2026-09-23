@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "message"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["message", "approval_needed"],
+      "description": "message = respuesta normal; approval_needed = el UI debe mostrar Aprobar/Cancelar"
+    },
+    "message": { "type": "string" }
+  }
+}

@@ -1,0 +1,26 @@
+key: post-sales-support
+version: 2.2.0
+kind: conversational
+name: Post-Sales and Support
+description: El comprador pregunta por el pedido, el tracking, una devolución, garantía, envío, términos o privacidad operativa. No es FAQ de la empresa ni del grupo corporativo.
+audience: buyer
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.2
+  max_tokens: 600
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: get_order_timeline
+    timeout_ms: 1500
+  - name: check_carrier
+    timeout_ms: 3000
+    requires:
+      - get_order_timeline
+  - name: create_return
+    side_effect: true
+  - name: search_policies

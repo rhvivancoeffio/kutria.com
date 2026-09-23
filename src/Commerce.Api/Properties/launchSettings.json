@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Commerce.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5050",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings__Commerce": "Host=localhost;Port=5433;Database=commerce;Username=commerce;Password=commerce",
+        "ConnectionStrings__Redis": "localhost:6380"
+      }
+    }
+  }
+}

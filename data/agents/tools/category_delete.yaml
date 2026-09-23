@@ -1,0 +1,10 @@
+name: category_delete
+description: Elimina una categoría en Gravity Headless (DELETE /Categories/{id}).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    category_id: { type: string }
+  required: [category_id]

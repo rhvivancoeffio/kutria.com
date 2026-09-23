@@ -1,0 +1,28 @@
+key: operations-advisor
+version: 2.2.0
+kind: conversational
+name: Operations Advisor
+description: El gerente pregunta cómo van las devoluciones, la entrega, el margen o la salud del marketplace, y quiere una propuesta para aprobar.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o
+  temperature: 0.3
+  max_tokens: 1000
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: get_kpi
+    timeout_ms: 2000
+  - name: get_orders_delayed
+    timeout_ms: 2000
+  - name: get_claims_breakdown
+    timeout_ms: 2000
+  - name: get_marketplace_health
+    timeout_ms: 2000
+  - name: propose_fix
+    side_effect: false
+    description: Crea una propuesta para aprobacion. No cambia stock, precio ni catalogo.

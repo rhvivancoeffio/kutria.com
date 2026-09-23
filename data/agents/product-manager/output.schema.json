@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "message"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["message", "approval_needed"],
+      "description": "message = respuesta normal; approval_needed = el UI debe mostrar Aprobar/Cancelar"
+    },
+    "message": { "type": "string" },
+    "draft": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["brand", "category", "product"],
+      "properties": {
+        "brand": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "is_new"],
+          "properties": {
+            "name": { "type": "string" },
+            "is_new": { "type": "boolean" },
+            "id": { "type": ["string", "null"] }
+          }
+        },
+        "category": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "is_new"],
+          "properties": {
+            "name": { "type": "string" },
+            "is_new": { "type": "boolean" },
+            "id": { "type": ["string", "null"] }
+          }
+        },
+        "product": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title"],
+          "properties": {
+            "title": { "type": "string" },
+            "image_url": { "type": ["string", "null"] }
+          }
+        }
+      }
+    }
+  }
+}

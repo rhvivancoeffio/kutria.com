@@ -1,0 +1,10 @@
+name: get_cart
+description: Lee el carrito en sesión (o cart_id). Si no hay carrito aún, devuelve vacío (item_count=0); no falla. Para crear/agregar usa add_item o create_cart.
+mcp: true
+timeout_ms: 5000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    cart_id: { type: string }
+  required: []

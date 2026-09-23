@@ -1,0 +1,15 @@
+name: search_policies
+description: >
+  Search the current policy, FAQ, shipping condition, terms or privacy text. Use for return windows, exceptions, warranties and operational FAQ. Do not use for stock, price or order tracking. Returns the effective document and its source, or not found. Never invent a policy.
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties:
+    query: { type: string }
+    type: { type: string }
+    seller_id: { type: string }
+    purchase_date: { type: string }
+  required: [query]

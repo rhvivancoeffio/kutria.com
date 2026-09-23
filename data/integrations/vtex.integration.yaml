@@ -1,0 +1,110 @@
+integration:
+  key: "VTEX"
+  type: api
+  integrationType: Shops
+  name: VTEX
+  description: Conecta con tu tienda VTEX para consultar catálogo, órdenes e inventario.
+  logoUrl: /logos/vtex.png
+  documentationUrl: https://developers.vtex.com/
+  settingsGroups:
+    FulfillmentSetting:
+      label: Configuración de fulfillment
+      description: Configuración de fulfillment
+  settings:
+    - key: accountName
+      label: Account Name
+      type: text
+      required: true
+      placeholder: mystore
+      help: Nombre de la cuenta VTEX (ej. mystore). Se usará como mystore.vtexcommercestable.com.br
+    - key: appKey
+      label: App Key
+      type: password
+      required: true
+      placeholder: vtexappkey-mystore-XXXXX
+      help: >
+        VtexIdClientAutCookie - App Key. Para precio/stock en extract de catálogo (Pricing en api.vtex.com + Logistics),
+        asigna en License Manager los recursos de Pricing, Logística y Catálogo que correspondan.
+    - key: appToken
+      label: App Token
+      type: password
+      required: true
+      placeholder: "********"
+      help: Token de autenticación de tu aplicación VTEX
+    - key: CountryIsoCode
+      label: País (Country ISO Code)
+      type: list
+      required: true
+      options:
+        - value: PER
+          label: PER
+        - value: COL
+          label: COL
+        - value: ECU
+          label: ECU
+        - value: MEX
+          label: MEX
+        - value: CHL
+          label: CHL
+        - value: BOL
+          label: BOL
+        - value: ARG
+          label: ARG
+    - key: CurrencyIsoCode
+      label: Moneda (Currency ISO Code)
+      type: list
+      required: true
+      options:
+        - value: PEN
+          label: PEN
+        - value: COP
+          label: COP
+        - value: MXN
+          label: MXN
+        - value: CLP
+          label: CLP
+        - value: USD
+          label: USD
+        - value: BOP
+          label: BOP
+        - value: ARG
+          label: ARG
+    - key: CurrencySymbol
+      label: Moneda (Símbolo)
+      type: list
+      required: true
+      options:
+        - value: "S/"
+          label: "S/"
+        - value: "$"
+          label: "$"
+    - key: affiliateId
+      group: FulfillmentSetting
+      label: Affiliate ID (fulfillment)
+      type: text
+      required: false
+      placeholder: MKP
+      help: >
+        Código de afiliado de tres letras en el seller VTEX para tu marketplace (query affiliateId al colocar pedidos
+        de fulfillment hacia el seller). Obligatorio para publicar ventas hacia un destino VTEX.
+    - key: salesChannel
+      group: FulfillmentSetting
+      label: Sales channel (sc)
+      type: text
+      required: false
+      placeholder: "1"
+      help: Opcional; query sc en la URL de fulfillment.
+    - key: fulfillmentSellerId
+      group: FulfillmentSetting
+      label: Seller ID (ítems fulfillment)
+      type: text
+      required: false
+      placeholder: "1"
+      help: ID del seller en VTEX para cada ítem del POST fulfillment; por defecto 1.
+    - key: isCreatedAsyncDefault
+      group: FulfillmentSetting
+      label: Crear pedido async por defecto
+      type: boolean
+      required: false
+      default: false
+      help: Valor booleano (true o false). Si es true, se envía isCreatedAsync=true en el POST de fulfillment.

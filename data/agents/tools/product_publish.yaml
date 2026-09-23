@@ -1,0 +1,10 @@
+name: product_publish
+description: Publica (enable) un producto en Gravity Headless (POST /Products/{id}/enable).
+mcp: true
+timeout_ms: 8000
+side_effect: true
+input_schema:
+  type: object
+  properties:
+    product_id: { type: string }
+  required: [product_id]

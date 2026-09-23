@@ -1,0 +1,14 @@
+<Project>
+  <!-- DatabaseProvider from env for correct migration compile (same as channel-ecommerce).
+       DATABASE_PROVIDER or DB_PROVIDER (Makefile uses both). -->
+  <PropertyGroup Condition="'$(DatabaseProvider)' == ''">
+    <DatabaseProvider>$([System.Environment]::GetEnvironmentVariable(`DATABASE_PROVIDER`))</DatabaseProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DatabaseProvider)' == ''">
+    <DatabaseProvider>$([System.Environment]::GetEnvironmentVariable(`DB_PROVIDER`))</DatabaseProvider>
+  </PropertyGroup>
+  <!-- Normalize Aspire/appsettings values for targets that still use DatabaseProvider -->
+  <PropertyGroup Condition="'$(DatabaseProvider)' == 'PostgreSQL' Or '$(DatabaseProvider)' == 'postgresql'">
+    <DatabaseProvider>Postgres</DatabaseProvider>
+  </PropertyGroup>
+</Project>

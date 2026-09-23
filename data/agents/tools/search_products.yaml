@@ -1,0 +1,29 @@
+name: search_products
+description: >
+  Buscar, filtrar por precio/atributos (género, talla, color), armar outfit, regalo, ocasión o qué combina.
+  Si el usuario pide hombre/mujer, talla o color, usa gender/size/color u option_filters (KEY:value).
+  No usar si pide comparar dos o más productos por nombre (vs, diferencia, cuál es mejor).
+mcp: true
+timeout_ms: 2000
+side_effect: false
+input_schema:
+
+  type: object
+  properties:
+    query: { type: string, description: "Texto de búsqueda" }
+    category: { type: string, description: "Categoría opcional" }
+    price_max: { type: number, description: "Precio máximo" }
+    budget: { type: number, description: "Presupuesto" }
+    currency: { type: string, description: "Moneda" }
+    items: { type: array, items: { type: string }, description: "Ítems de outfit" }
+    occasion: { type: string, description: "Ocasión" }
+    reference_product_id: { type: string, description: "Producto de referencia" }
+    limit: { type: integer, description: "Límite de resultados" }
+    gender: { type: string, description: "Filtro exacto de género (ej. Hombre, Mujer, Unisex)" }
+    size: { type: string, description: "Filtro exacto de talla (ej. 8, M, 42)" }
+    color: { type: string, description: "Filtro exacto de color (ej. Negro)" }
+    option_filters:
+      type: array
+      items: { type: string }
+      description: "Pares KEY:value canónicos adicionales (ej. GENDER:Hombre, AGE_GROUP:Adultos)"
+  required: []

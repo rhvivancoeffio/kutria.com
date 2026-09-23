@@ -1,0 +1,32 @@
+key: product-onboarding-coordinator
+version: 1.0.0
+kind: coordinator
+name: Product Onboarding Coordinator
+description: Analiza foto o nombre, resuelve marca/categoría y pide approval antes de crear en Gravity.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.1
+  max_tokens: 800
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: image_analyze
+    timeout_ms: 30000
+  - name: brand_list
+    timeout_ms: 5000
+  - name: brand_create
+    side_effect: true
+    timeout_ms: 8000
+  - name: category_list
+    timeout_ms: 5000
+  - name: category_create
+    side_effect: true
+    timeout_ms: 8000
+  - name: product_create
+    side_effect: true
+    timeout_ms: 10000

@@ -1,0 +1,34 @@
+# Gravity como API genérica (tab APIs). Credenciales manuales; sin MeetGravity provision.
+integration:
+  key: "GravityAPI"
+  type: api
+  isActive: true
+  name: Gravity API
+  description: Conecta la API Gravity con URL, API Key y Organization Id para exponer catálogo, productos y órdenes a tus agentes.
+  logoUrl: /logos/gravity.jpeg
+  documentationUrl: https://github.com/minimalgravity
+  settings:
+    - key: url
+      label: API URL
+      type: url
+      required: true
+      placeholder: https://gravity-api.example.com/
+      help: URL base de la API Gravity (ej. https://gravity-addi-api-xxx.azurewebsites.net/)
+    - key: apiKey
+      label: API Key
+      type: password
+      required: true
+      placeholder: "********"
+      help: API Key para autenticación con la API Gravity
+    - key: organizationId
+      label: Organization Id
+      type: text
+      required: true
+      placeholder: "00000000-0000-0000-0000-000000000000"
+      help: Id de organización Gravity. Se envía en el header x-Org-Id en cada request.
+    - key: sellerId
+      label: Seller Id (default)
+      type: text
+      required: false
+      placeholder: Se resuelve al conectar
+      help: Se obtiene automáticamente de GET /sellers/default al conectar o actualizar. Se usa en el carrito cuando el agente no pasa seller_id.

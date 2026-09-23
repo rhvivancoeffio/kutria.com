@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="k-grad" x1="15%" y1="10%" x2="85%" y2="90%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#00F5FF"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <!-- K geometrica - trazo grueso premium -->
+  <path d="M24 22 L24 106 L40 106 L40 66 L76 106 L98 106 L55 63 L94 22 L74 22 L40 57 L40 22 Z" fill="url(#k-grad)"/>
+</svg>

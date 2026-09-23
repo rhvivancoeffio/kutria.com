@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["payment_id", "order_id", "status"],
+  "properties": {
+    "payment_id": { "type": ["string", "null"] },
+    "order_id": { "type": "string" },
+    "status": { "type": "string" }
+  }
+}

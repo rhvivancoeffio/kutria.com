@@ -1,0 +1,12 @@
+name: brand_list
+description: Lista o busca marcas en Gravity Headless por nombre.
+mcp: true
+timeout_ms: 5000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    name: { type: string, description: "Filtro por nombre" }
+    page: { type: integer }
+    page_size: { type: integer }
+  required: []

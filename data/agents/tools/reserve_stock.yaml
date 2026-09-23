@@ -1,0 +1,12 @@
+name: reserve_stock
+description: >
+  Reserve stock for an order (workflow).
+mcp: false
+timeout_ms: 3000
+side_effect: true
+input_schema:
+
+  type: object
+  properties:
+    orderId: { type: string }
+  required: [orderId]

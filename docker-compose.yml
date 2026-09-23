@@ -1,0 +1,123 @@
+services:
+  commerce.db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: commerce
+      POSTGRES_PASSWORD: commerce
+      POSTGRES_DB: commerce
+    ports:
+      # Host 5433 — avoid clash with team-ecommerce (and other stacks) on :5432
+      - "5433:5432"
+    volumes:
+      - commerce_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U commerce -d commerce"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  commerce.cache:
+    image: redis:7-alpine
+    ports:
+      # Host 6380 — avoid clash with team-ecommerce on :6379
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Optional. Start with: docker compose --profile sqlserver up
+  commerce.sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    profiles: ["sqlserver"]
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Your_password123"
+    ports:
+      # Host 14333 — avoid clash with conversational on :1433
+      - "14333:1433"
+
+  commerce.rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      # Host 5693 / 15683 — avoid team (5672), template/channel/storefront (5683), content-builder (5688)
+      - "5693:5672"
+      - "15683:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  commerce.qdrant:
+    image: qdrant/qdrant:v1.13.4
+    ports:
+      # Host 6333 is free across sibling stacks. 6334 is the gRPC port the .NET client uses.
+      - "6333:6333"
+      - "6334:6334"
+
+  commerce.api:
+    build:
+      context: .
+      dockerfile: src/Commerce.Api/Dockerfile
+    ports:
+      # Container listens on 5000. Host maps 5050 because macOS AirPlay often binds :5000.
+      - "5050:5000"
+    env_file:
+      - .env
+    environment:
+      ConnectionStrings__Commerce: Host=commerce.db;Port=5432;Database=commerce;Username=commerce;Password=commerce
+      ConnectionStrings__Redis: commerce.cache:6379
+      ConnectionStrings__RabbitMQ: amqp://guest:guest@commerce.rabbitmq:5672
+      ConnectionStrings__Qdrant: http://commerce.qdrant:6334
+      Brain__RawPath: /var/commerce/brains-raw
+      Queue__Provider: RabbitMQ
+      Vector__Provider: Qdrant
+      ASPNETCORE_ENVIRONMENT: Development
+    depends_on:
+      commerce.db:
+        condition: service_healthy
+      commerce.cache:
+        condition: service_healthy
+      commerce.rabbitmq:
+        condition: service_healthy
+    volumes:
+      - brains-raw:/var/commerce/brains-raw
+
+  commerce.worker:
+    build:
+      context: .
+      dockerfile: src/Commerce.Worker/Dockerfile
+    env_file:
+      - .env
+    environment:
+      ConnectionStrings__Commerce: Host=commerce.db;Port=5432;Database=commerce;Username=commerce;Password=commerce
+      ConnectionStrings__Redis: commerce.cache:6379
+      ConnectionStrings__RabbitMQ: amqp://guest:guest@commerce.rabbitmq:5672
+      ConnectionStrings__Qdrant: http://commerce.qdrant:6334
+      Brain__RawPath: /var/commerce/brains-raw
+      Queue__Provider: RabbitMQ
+      Vector__Provider: Qdrant
+    depends_on:
+      commerce.db:
+        condition: service_healthy
+      commerce.cache:
+        condition: service_healthy
+      commerce.rabbitmq:
+        condition: service_healthy
+    volumes:
+      - brains-raw:/var/commerce/brains-raw
+
+  commerce.web:
+    build:
+      context: .
+      dockerfile: src/Commerce.Web/Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - commerce.api
+
+volumes:
+  commerce_pgdata:
+  brains-raw:

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "message", "ficha"],
+  "properties": {
+    "type": { "type": "string", "enum": ["message"] },
+    "message": { "type": "string" },
+    "ficha": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "bullets", "seo"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "seo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "metaDescription"],
+          "properties": {
+            "title": { "type": "string" },
+            "metaDescription": { "type": "string" }
+          }
+        },
+        "brandHint": { "type": ["string", "null"] },
+        "categoryHint": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+name: image_analyze
+description: >
+  Analiza una foto de producto y extrae brand, title y category sugeridos.
+mcp: false
+timeout_ms: 30000
+side_effect: false
+input_schema:
+  type: object
+  properties:
+    image_url: { type: string, description: "URL de la imagen" }
+    hint: { type: string, description: "Título o hint opcional del usuario" }
+  required: []

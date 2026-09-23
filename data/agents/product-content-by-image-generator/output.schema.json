@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "message", "ficha"],
+  "properties": {
+    "type": { "type": "string", "enum": ["message"] },
+    "message": { "type": "string" },
+    "ficha": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "description",
+        "bullets",
+        "seo",
+        "brandHint",
+        "isNewBrand",
+        "categoryHint",
+        "isNewCategory"
+      ],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "seo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "metaDescription"],
+          "properties": {
+            "title": { "type": "string" },
+            "metaDescription": { "type": "string" }
+          }
+        },
+        "brandHint": { "type": "string" },
+        "brandId": { "type": ["string", "null"] },
+        "isNewBrand": { "type": "boolean" },
+        "categoryHint": { "type": "string" },
+        "categoryId": { "type": ["string", "null"] },
+        "isNewCategory": { "type": "boolean" }
+      }
+    }
+  }
+}

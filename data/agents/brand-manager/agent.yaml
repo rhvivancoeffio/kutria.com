@@ -1,0 +1,28 @@
+key: brand-manager
+version: 1.0.0
+kind: conversational
+name: Brand Manager
+description: Gestiona marcas del catálogo Gravity (listar, crear, actualizar, eliminar).
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.2
+  max_tokens: 700
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: brand_list
+    timeout_ms: 5000
+  - name: brand_create
+    side_effect: true
+    timeout_ms: 8000
+  - name: brand_update
+    side_effect: true
+    timeout_ms: 8000
+  - name: brand_delete
+    side_effect: true
+    timeout_ms: 8000

@@ -1,0 +1,13 @@
+key: payment-webhook
+version: 2.2.0
+kind: workflow
+name: Payment Webhook
+description: Recibe el evento de pago y publica order-paid. Sin LLM.
+queue: payment-events
+publishes:
+  - order-paid
+output:
+  schema_file: output.schema.json
+tools:
+  - name: publish_order_paid
+    side_effect: true

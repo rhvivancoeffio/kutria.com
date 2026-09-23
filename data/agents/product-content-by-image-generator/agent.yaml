@@ -1,0 +1,21 @@
+key: product-content-by-image-generator
+version: 1.0.0
+kind: conversational
+name: Product Content By Image Generator
+description: >
+  Genera ficha completa de producto a partir de una imagen (y hint opcional).
+  Úsalo cuando el usuario sube o referencia una foto de producto para crear la ficha.
+audience: manager
+prompt:
+  system_file: system.md
+model:
+  name: gpt-4o-mini
+  temperature: 0.3
+  max_tokens: 1200
+guardrails:
+  no_invent: true
+output:
+  schema_file: output.schema.json
+tools:
+  - name: generate_product_content_from_image
+    timeout_ms: 60000
