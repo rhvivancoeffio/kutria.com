@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+**/Migrations/
+**/node_modules/
+**/dist/
+**/.git/
+**/.vs/
+**/letsencrypt/
+**/data/
+**/brains-raw/
+**/certs/
+**/TestResults/
+**/publish/
+*.dll
+*.pdb
+package-lock.json

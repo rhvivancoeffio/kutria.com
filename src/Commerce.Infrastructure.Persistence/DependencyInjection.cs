@@ -38,6 +38,11 @@ public static class DependencyInjection
                 {
                     sql.MigrationsAssembly(migrationsAssembly);
                     sql.MigrationsHistoryTable("__EFMigrationsHistory_App");
+                    sql.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null);
+                    sql.CommandTimeout(60);
                 }));
             services.AddScoped<ICommerceDbContext>(sp => sp.GetRequiredService<SqlServerCommerceDbContext>());
 
@@ -46,6 +51,11 @@ public static class DependencyInjection
                 {
                     sql.MigrationsAssembly(migrationsAssembly);
                     sql.MigrationsHistoryTable("__EFMigrationsHistory_TenantStore");
+                    sql.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null);
+                    sql.CommandTimeout(60);
                 }));
             services.AddScoped<ICommerceTenantDatabase>(sp => sp.GetRequiredService<SqlServerCommerceTenantStoreDbContext>());
         }

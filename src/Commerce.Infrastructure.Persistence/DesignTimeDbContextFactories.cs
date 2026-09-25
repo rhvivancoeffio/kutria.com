@@ -34,6 +34,11 @@ public sealed class SqlServerCommerceDbContextDesignTimeFactory : IDesignTimeDbC
             {
                 sql.MigrationsAssembly(typeof(SqlServerCommerceDbContext).Assembly.FullName);
                 sql.MigrationsHistoryTable("__EFMigrationsHistory_App");
+                sql.EnableRetryOnFailure(
+                    maxRetryCount: 5,
+                    maxRetryDelay: TimeSpan.FromSeconds(10),
+                    errorNumbersToAdd: null);
+                sql.CommandTimeout(60);
             })
             .Options;
 
@@ -72,6 +77,11 @@ public sealed class SqlServerCommerceTenantStoreDbContextDesignTimeFactory
             {
                 sql.MigrationsAssembly(typeof(SqlServerCommerceTenantStoreDbContext).Assembly.FullName);
                 sql.MigrationsHistoryTable("__EFMigrationsHistory_TenantStore");
+                sql.EnableRetryOnFailure(
+                    maxRetryCount: 5,
+                    maxRetryDelay: TimeSpan.FromSeconds(10),
+                    errorNumbersToAdd: null);
+                sql.CommandTimeout(60);
             })
             .Options;
 

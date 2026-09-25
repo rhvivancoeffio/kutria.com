@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Commerce.Infrastructure.Persistence.Migrations.TenantStore.SqlServer
+namespace Commerce.Infrastructure.Persistence.Migrations.TenantStore.Postgres
 {
     /// <inheritdoc />
     public partial class InitialTenantStore : Migration
@@ -14,9 +14,10 @@ namespace Commerce.Infrastructure.Persistence.Migrations.TenantStore.SqlServer
                 name: "Tenants",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Identifier = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Identifier = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    CommerceStoreMode = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

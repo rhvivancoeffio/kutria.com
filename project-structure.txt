@@ -1,0 +1,1110 @@
+ocp-project/
+│   ├── Commerce.sln
+│   ├── README.md
+│   ├── docker-compose.yml
+│   ├── global.json
+ocp-project/
+ocp-project/
+│   ├── Commerce.Api/
+│   │   ├── Commerce.Api.csproj
+│   │   ├── Program.cs
+│   │   ├── appsettings.json
+│   │   ├── Middleware/
+│   │   │   ├── RequireResolvedTenantMiddleware.cs
+│   │   ├── Modules/
+│   │   │   ├── AgentsModule.cs
+│   │   │   ├── ApiKeysModule.cs
+│   │   │   ├── AuthModule.cs
+│   │   │   ├── BillingModule.cs
+│   │   │   ├── BrainModule.cs
+│   │   │   ├── CatalogModule.cs
+│   │   │   ├── ChatModule.cs
+│   │   │   ├── DataIngestionModule.cs
+│   │   │   ├── EventStreamsModule.cs
+│   │   │   ├── GenerativeModule.cs
+│   │   │   ├── IntegrationsModule.cs
+│   │   │   ├── ObservabilityModule.cs
+│   │   │   ├── PoliciesModule.cs
+│   │   │   ├── ProductsModule.cs
+│   │   │   ├── TenantHttp.cs
+│   │   │   ├── TenantsModule.cs
+│   │   │   ├── ToursModule.cs
+│   │   │   ├── WorkspacesModule.cs
+│   │   ├── Properties/
+│   │   │   ├── launchSettings.json
+│   ├── Commerce.Application/
+│   │   ├── Commerce.Application.csproj
+│   │   ├── DependencyInjection.cs
+│   │   ├── Abstracts/
+│   │   │   ├── AgentDefinition.cs
+│   │   │   ├── AgentDefinitionRejectedException.cs
+│   │   │   ├── AgentStreamEvent.cs
+│   │   │   ├── CartException.cs
+│   │   │   ├── CatalogImageDocument.cs
+│   │   │   ├── CatalogImageOptions.cs
+│   │   │   ├── CatalogOptionNormalizer.cs
+│   │   │   ├── CatalogSkuSnapshot.cs
+│   │   │   ├── ChatImageAttachment.cs
+│   │   │   ├── DataIngestionOptions.cs
+│   │   │   ├── IAccessTokenIssuer.cs
+│   │   │   ├── IAgentDefinitionStore.cs
+│   │   │   ├── IAgentGenerationAudit.cs
+│   │   │   ├── IAgentRuntime.cs
+│   │   │   ├── IBrainDocumentParser.cs
+│   │   │   ├── IBrainIndex.cs
+│   │   │   ├── IBrainPipeline.cs
+│   │   │   ├── IBrainProfile.cs
+│   │   │   ├── IBrainRawStore.cs
+│   │   │   ├── ICatalogBrainIndex.cs
+│   │   │   ├── Integrations/
+│   │   │   ├── Mcp/
+│   │   │   │   ├── IMcpOAuthStore.cs
+│   │   │   ├── Tours/
+│   │   │   │   ├── IToursMetadataService.cs
+│   │   ├── Common/
+│   │   │   ├── WorkspaceRequirement.cs
+│   │   │   ├── Abstracts/
+│   │   │   │   ├── ICommand.cs
+│   │   │   │   ├── ICommandHandler.cs
+│   │   │   │   ├── IQuery.cs
+│   │   │   │   ├── IQueryHandler.cs
+│   │   │   ├── Behaviors/
+│   │   │   │   ├── ValidationBehavior.cs
+│   │   ├── Configuration/
+│   │   │   ├── EventStreamsOptions.cs
+│   │   │   ├── McpOptions.cs
+│   │   ├── Features/
+│   │   │   ├── Agents/
+│   │   │   │   ├── GetAgent/
+│   │   │   │   │   ├── GetAgentHandler.cs
+│   │   │   │   │   ├── GetAgentQuery.cs
+│   │   │   │   │   ├── GetAgentResult.cs
+│   │   │   │   ├── ListAgents/
+│   │   │   │   │   ├── ListAgentsHandler.cs
+│   │   │   │   │   ├── ListAgentsQuery.cs
+│   │   │   │   │   ├── ListAgentsResult.cs
+│   │   │   │   ├── ResetAgentDefinition/
+│   │   │   │   │   ├── ResetAgentDefinitionCommand.cs
+│   │   │   │   │   ├── ResetAgentDefinitionCommandValidator.cs
+│   │   │   │   │   ├── ResetAgentDefinitionHandler.cs
+│   │   │   │   │   ├── ResetAgentDefinitionResult.cs
+│   │   │   │   ├── SaveAgentDefinition/
+│   │   │   │   │   ├── SaveAgentDefinitionCommand.cs
+│   │   │   │   │   ├── SaveAgentDefinitionCommandValidator.cs
+│   │   │   │   │   ├── SaveAgentDefinitionHandler.cs
+│   │   │   │   │   ├── SaveAgentDefinitionResult.cs
+│   │   │   ├── ApiKeys/
+│   │   │   │   ├── CreateApiKey/
+│   │   │   │   │   ├── CreateApiKeyCommand.cs
+│   │   │   │   │   ├── CreateApiKeyCommandValidator.cs
+│   │   │   │   │   ├── CreateApiKeyHandler.cs
+│   │   │   │   │   ├── CreateApiKeyResult.cs
+│   │   │   │   ├── DeleteApiKey/
+│   │   │   │   │   ├── DeleteApiKeyCommand.cs
+│   │   │   │   │   ├── DeleteApiKeyHandler.cs
+│   │   │   │   │   ├── DeleteApiKeyResult.cs
+│   │   │   │   ├── ListApiKeys/
+│   │   │   │   │   ├── ListApiKeysHandler.cs
+│   │   │   │   │   ├── ListApiKeysQuery.cs
+│   │   │   │   │   ├── ListApiKeysResult.cs
+│   │   │   │   ├── RevokeApiKey/
+│   │   │   │   │   ├── RevokeApiKeyCommand.cs
+│   │   │   │   │   ├── RevokeApiKeyHandler.cs
+│   │   │   │   │   ├── RevokeApiKeyResult.cs
+│   │   │   ├── Auth/
+│   │   │   │   ├── TenantIdentifierRules.cs
+│   │   │   │   ├── CheckTenantAvailability/
+│   │   │   │   │   ├── CheckTenantAvailabilityHandler.cs
+│   │   │   │   │   ├── CheckTenantAvailabilityQuery.cs
+│   │   │   │   │   ├── CheckTenantAvailabilityResult.cs
+│   │   │   │   ├── GetMe/
+│   │   │   │   │   ├── GetMeHandler.cs
+│   │   │   │   │   ├── GetMeQuery.cs
+│   │   │   │   │   ├── GetMeResult.cs
+│   │   │   │   ├── SignIn/
+│   │   │   │   │   ├── SignInCommand.cs
+│   │   │   │   │   ├── SignInCommandValidator.cs
+│   │   │   │   │   ├── SignInHandler.cs
+│   │   │   │   │   ├── SignInResult.cs
+│   │   │   │   ├── SignUp/
+│   │   │   │   │   ├── SignUpCommand.cs
+│   │   │   │   │   ├── SignUpCommandValidator.cs
+│   │   │   │   │   ├── SignUpHandler.cs
+│   │   │   │   │   ├── SignUpResult.cs
+│   │   │   ├── Billing/
+│   │   │   │   ├── GetBilling/
+│   │   │   │   │   ├── GetBillingHandler.cs
+│   │   │   │   │   ├── GetBillingQuery.cs
+│   │   │   │   │   ├── GetBillingResult.cs
+│   │   │   │   ├── ListInvoices/
+│   │   │   │   │   ├── InvoiceListItem.cs
+│   │   │   │   │   ├── ListInvoicesHandler.cs
+│   │   │   │   │   ├── ListInvoicesQuery.cs
+│   │   │   │   │   ├── ListInvoicesResult.cs
+│   │   │   │   ├── UpdateBillingPlan/
+│   │   │   │   │   ├── UpdateBillingPlanCommand.cs
+│   │   │   │   │   ├── UpdateBillingPlanCommandValidator.cs
+│   │   │   │   │   ├── UpdateBillingPlanHandler.cs
+│   │   │   │   │   ├── UpdateBillingPlanResult.cs
+│   │   │   ├── Brains/
+│   │   │   │   ├── BrainJobResults.cs
+│   │   │   │   ├── GetBrainJob/
+│   │   │   │   │   ├── GetBrainJobHandler.cs
+│   │   │   │   │   ├── GetBrainJobQuery.cs
+│   │   │   │   │   ├── GetBrainJobResult.cs
+│   │   │   │   ├── ProcessBrainIngest/
+│   │   │   │   │   ├── ProcessBrainIngestCommand.cs
+│   │   │   │   │   ├── ProcessBrainIngestCommandValidator.cs
+│   │   │   │   │   ├── ProcessBrainIngestHandler.cs
+│   │   │   │   │   ├── ProcessBrainIngestResult.cs
+│   │   │   │   ├── PublishBrainDocument/
+│   │   │   │   │   ├── PublishBrainDocumentCommand.cs
+│   │   │   │   │   ├── PublishBrainDocumentCommandValidator.cs
+│   │   │   │   │   ├── PublishBrainDocumentHandler.cs
+│   │   │   │   │   ├── PublishBrainDocumentResult.cs
+│   │   │   │   ├── UploadBrainDocument/
+│   │   │   │   │   ├── UploadBrainDocumentCommand.cs
+│   │   │   │   │   ├── UploadBrainDocumentCommandValidator.cs
+│   │   │   │   │   ├── UploadBrainDocumentHandler.cs
+│   │   │   │   │   ├── UploadBrainDocumentResult.cs
+│   │   │   ├── Catalog/
+│   │   │   │   ├── CatalogGravityCredentials.cs
+│   │   │   │   ├── Attributes/
+│   │   │   │   │   ├── CreateAttribute/
+│   │   │   │   │   │   ├── CreateAttributeCommand.cs
+│   │   │   │   │   │   ├── CreateAttributeCommandValidator.cs
+│   │   │   │   │   │   ├── CreateAttributeHandler.cs
+│   │   │   │   │   │   ├── CreateAttributeResult.cs
+│   │   │   │   │   ├── DeleteAttribute/
+│   │   │   │   │   │   ├── DeleteAttributeCommand.cs
+│   │   │   │   │   │   ├── DeleteAttributeCommandValidator.cs
+│   │   │   │   │   │   ├── DeleteAttributeHandler.cs
+│   │   │   │   │   │   ├── DeleteAttributeResult.cs
+│   │   │   │   │   ├── GetAttribute/
+│   │   │   │   │   │   ├── GetAttributeHandler.cs
+│   │   │   │   │   │   ├── GetAttributeQuery.cs
+│   │   │   │   │   │   ├── GetAttributeResult.cs
+│   │   │   │   │   ├── ListAttributes/
+│   │   │   │   │   │   ├── ListAttributesHandler.cs
+│   │   │   │   │   │   ├── ListAttributesQuery.cs
+│   │   │   │   │   │   ├── ListAttributesResult.cs
+│   │   │   │   │   ├── UpdateAttribute/
+│   │   │   │   │   │   ├── UpdateAttributeCommand.cs
+│   │   │   │   │   │   ├── UpdateAttributeCommandValidator.cs
+│   │   │   │   │   │   ├── UpdateAttributeHandler.cs
+│   │   │   │   │   │   ├── UpdateAttributeResult.cs
+│   │   │   │   ├── Brands/
+│   │   │   │   │   ├── AutocompleteBrands/
+│   │   │   │   │   │   ├── AutocompleteBrandsHandler.cs
+│   │   │   │   │   │   ├── AutocompleteBrandsQuery.cs
+│   │   │   │   │   │   ├── AutocompleteBrandsResult.cs
+│   │   │   │   │   ├── CreateBrand/
+│   │   │   │   │   │   ├── CreateBrandCommand.cs
+│   │   │   │   │   │   ├── CreateBrandCommandValidator.cs
+│   │   │   │   │   │   ├── CreateBrandHandler.cs
+│   │   │   │   │   │   ├── CreateBrandResult.cs
+│   │   │   │   │   ├── DeleteBrand/
+│   │   │   │   │   │   ├── DeleteBrandCommand.cs
+│   │   │   │   │   │   ├── DeleteBrandCommandValidator.cs
+│   │   │   │   │   │   ├── DeleteBrandHandler.cs
+│   │   │   │   │   │   ├── DeleteBrandResult.cs
+│   │   │   │   │   ├── GetBrand/
+│   │   │   │   │   │   ├── GetBrandHandler.cs
+│   │   │   │   │   │   ├── GetBrandQuery.cs
+│   │   │   │   │   │   ├── GetBrandResult.cs
+│   │   │   │   │   ├── ListBrands/
+│   │   │   │   │   │   ├── ListBrandsHandler.cs
+│   │   │   │   │   │   ├── ListBrandsQuery.cs
+│   │   │   │   │   │   ├── ListBrandsResult.cs
+│   │   │   │   │   ├── UpdateBrand/
+│   │   │   │   │   │   ├── UpdateBrandCommand.cs
+│   │   │   │   │   │   ├── UpdateBrandCommandValidator.cs
+│   │   │   │   │   │   ├── UpdateBrandHandler.cs
+│   │   │   │   │   │   ├── UpdateBrandResult.cs
+│   │   │   │   ├── Categories/
+│   │   │   │   │   ├── CreateCategory/
+│   │   │   │   │   │   ├── CreateCategoryCommand.cs
+│   │   │   │   │   │   ├── CreateCategoryCommandValidator.cs
+│   │   │   │   │   │   ├── CreateCategoryHandler.cs
+│   │   │   │   │   │   ├── CreateCategoryResult.cs
+│   │   │   │   │   ├── DeleteCategory/
+│   │   │   │   │   │   ├── DeleteCategoryCommand.cs
+│   │   │   │   │   │   ├── DeleteCategoryCommandValidator.cs
+│   │   │   │   │   │   ├── DeleteCategoryHandler.cs
+│   │   │   │   │   │   ├── DeleteCategoryResult.cs
+│   │   │   │   │   ├── GetCategory/
+│   │   │   │   │   │   ├── GetCategoryHandler.cs
+│   │   │   │   │   │   ├── GetCategoryQuery.cs
+│   │   │   │   │   │   ├── GetCategoryResult.cs
+│   │   │   │   │   ├── ListCategories/
+│   │   │   │   │   │   ├── ListCategoriesHandler.cs
+│   │   │   │   │   │   ├── ListCategoriesQuery.cs
+│   │   │   │   │   │   ├── ListCategoriesResult.cs
+│   │   │   │   │   ├── UpdateCategory/
+│   │   │   │   │   │   ├── UpdateCategoryCommand.cs
+│   │   │   │   │   │   ├── UpdateCategoryCommandValidator.cs
+│   │   │   │   │   │   ├── UpdateCategoryHandler.cs
+│   │   │   │   │   │   ├── UpdateCategoryResult.cs
+│   │   │   │   ├── Products/
+│   │   │   │   │   ├── CreateProduct/
+│   │   │   │   │   │   ├── CreateProductCommand.cs
+│   │   │   │   │   │   ├── CreateProductCommandValidator.cs
+│   │   │   │   │   │   ├── CreateProductHandler.cs
+│   │   │   │   │   │   ├── CreateProductResult.cs
+│   │   │   │   │   ├── DeleteProduct/
+│   │   │   │   │   │   ├── DeleteProductCommand.cs
+│   │   │   │   │   │   ├── DeleteProductCommandValidator.cs
+│   │   │   │   │   │   ├── DeleteProductHandler.cs
+│   │   │   │   │   │   ├── DeleteProductResult.cs
+│   │   │   │   │   ├── GetProduct/
+│   │   │   │   │   │   ├── GetProductHandler.cs
+│   │   │   │   │   │   ├── GetProductQuery.cs
+│   │   │   │   │   │   ├── GetProductResult.cs
+│   │   │   │   │   ├── ListProducts/
+│   │   │   │   │   │   ├── ListProductsHandler.cs
+│   │   │   │   │   │   ├── ListProductsQuery.cs
+│   │   │   │   │   │   ├── ListProductsResult.cs
+│   │   │   │   │   ├── UpdateProduct/
+│   │   │   │   │   │   ├── UpdateProductCommand.cs
+│   │   │   │   │   │   ├── UpdateProductCommandValidator.cs
+│   │   │   │   │   │   ├── UpdateProductHandler.cs
+│   │   │   │   │   │   ├── UpdateProductResult.cs
+│   │   │   ├── CreateProduct/
+│   │   │   │   ├── CreateProductContracts.cs
+│   │   │   │   ├── GravityTenantCredentials.cs
+│   │   │   │   ├── IOnboardingImageStore.cs
+│   │   │   │   ├── ApproveOnboarding/
+│   │   │   │   │   ├── ApproveOnboardingCommand.cs
+│   │   │   │   │   ├── ApproveOnboardingCommandValidator.cs
+│   │   │   │   │   ├── ApproveOnboardingHandler.cs
+│   │   │   │   │   ├── ApproveOnboardingResult.cs
+│   │   │   │   ├── StartOnboarding/
+│   │   │   │   │   ├── StartOnboardingCommand.cs
+│   │   │   │   │   ├── StartOnboardingCommandValidator.cs
+│   │   │   │   │   ├── StartOnboardingHandler.cs
+│   │   │   │   │   ├── StartOnboardingResult.cs
+│   │   │   ├── DataIngestion/
+│   │   │   │   ├── CatalogVectorEnqueue.cs
+│   │   │   │   ├── CompositeCatalogDataService.cs
+│   │   │   │   ├── DataIngestContentHash.cs
+│   │   │   │   ├── DataIngestCredentials.cs
+│   │   │   │   ├── GravityCatalogBrainMapper.cs
+│   │   │   │   ├── GravityIntegrationAccess.cs
+│   │   │   │   ├── GravityPayloadMapper.cs
+│   │   │   │   ├── IngestedCatalogMemory.cs
+│   │   │   │   ├── DispatchDataIngest/
+│   │   │   │   ├── EnqueueDataIngest/
+│   │   │   │   │   ├── EnqueueDataIngestCommand.cs
+│   │   │   │   │   ├── EnqueueDataIngestCommandValidator.cs
+│   │   │   │   │   ├── EnqueueDataIngestHandler.cs
+│   │   │   │   │   ├── EnqueueDataIngestResult.cs
+│   │   │   │   ├── ForceEnqueueCatalogVector/
+│   │   │   │   │   ├── ForceEnqueueCatalogVectorCommand.cs
+│   │   │   │   │   ├── ForceEnqueueCatalogVectorCommandValidator.cs
+│   │   │   │   │   ├── ForceEnqueueCatalogVectorHandler.cs
+│   │   │   │   │   ├── ForceEnqueueCatalogVectorResult.cs
+│   │   │   │   ├── GetIngestedCatalogItem/
+│   │   │   │   │   ├── GetIngestedCatalogItemHandler.cs
+│   │   │   │   │   ├── GetIngestedCatalogItemQuery.cs
+│   │   │   │   │   ├── GetIngestedCatalogItemResult.cs
+│   │   │   │   ├── GetIngestedOrder/
+│   │   │   │   │   ├── GetIngestedOrderHandler.cs
+│   │   │   │   │   ├── GetIngestedOrderQuery.cs
+│   │   │   │   │   ├── GetIngestedOrderResult.cs
+│   │   │   │   ├── GetIngestionCatalogItem/
+│   │   │   │   │   ├── GetIngestionCatalogItemHandler.cs
+│   │   │   │   │   ├── GetIngestionCatalogItemQuery.cs
+│   │   │   │   │   ├── GetIngestionCatalogItemResult.cs
+│   │   │   │   ├── GetIngestionOrder/
+│   │   │   │   │   ├── GetIngestionOrderHandler.cs
+│   │   │   │   │   ├── GetIngestionOrderQuery.cs
+│   │   │   │   │   ├── GetIngestionOrderResult.cs
+│   │   │   │   ├── ListIngestedCatalog/
+│   │   │   │   │   ├── ListIngestedCatalogHandler.cs
+│   │   │   │   │   ├── ListIngestedCatalogQuery.cs
+│   │   │   │   │   ├── ListIngestedCatalogResult.cs
+│   │   │   │   ├── ListIngestedOrders/
+│   │   │   │   │   ├── ListIngestedOrdersHandler.cs
+│   │   │   │   │   ├── ListIngestedOrdersQuery.cs
+│   │   │   │   │   ├── ListIngestedOrdersResult.cs
+│   │   │   │   ├── ListIngestionsCatalog/
+│   │   │   │   │   ├── ListIngestionsCatalogHandler.cs
+│   │   │   │   │   ├── ListIngestionsCatalogQuery.cs
+│   │   │   │   │   ├── ListIngestionsCatalogResult.cs
+│   │   │   │   ├── ListIngestionsOrders/
+│   │   │   │   │   ├── ListIngestionsOrdersHandler.cs
+│   │   │   │   │   ├── ListIngestionsOrdersQuery.cs
+│   │   │   │   │   ├── ListIngestionsOrdersResult.cs
+│   │   │   │   ├── ProcessCatalogImageVector/
+│   │   │   │   │   ├── ProcessCatalogImageVectorCommand.cs
+│   │   │   │   │   ├── ProcessCatalogImageVectorHandler.cs
+│   │   │   │   │   ├── ProcessCatalogImageVectorResult.cs
+│   │   │   │   ├── ProcessCatalogVectorIngest/
+│   │   │   │   │   ├── ProcessCatalogVectorIngestCommand.cs
+│   │   │   │   │   ├── ProcessCatalogVectorIngestHandler.cs
+│   │   │   │   │   ├── ProcessCatalogVectorIngestResult.cs
+│   │   │   │   ├── ProcessDataIngest/
+│   │   │   │   │   ├── ProcessDataIngestCommand.cs
+│   │   │   │   │   ├── ProcessDataIngestHandler.cs
+│   │   │   │   │   ├── ProcessDataIngestResult.cs
+│   │   │   ├── Generative/
+│   │   │   │   ├── GenerativeCatalogContextPrompt.cs
+│   │   │   │   ├── StartProductContentByImageGeneration/
+│   │   │   │   │   ├── StartProductContentByImageGenerationCommand.cs
+│   │   │   │   │   ├── StartProductContentByImageGenerationCommandValidator.cs
+│   │   │   │   │   ├── StartProductContentByImageGenerationHandler.cs
+│   │   │   │   │   ├── StartProductContentByImageGenerationResult.cs
+│   │   │   │   ├── StartProductContentGeneration/
+│   │   │   │   │   ├── StartProductContentGenerationCommand.cs
+│   │   │   │   │   ├── StartProductContentGenerationCommandValidator.cs
+│   │   │   │   │   ├── StartProductContentGenerationHandler.cs
+│   │   │   │   │   ├── StartProductContentGenerationResult.cs
+│   │   │   │   ├── StartProductImageGeneration/
+│   │   │   │   │   ├── StartProductImageGenerationCommand.cs
+│   │   │   │   │   ├── StartProductImageGenerationCommandValidator.cs
+│   │   │   │   │   ├── StartProductImageGenerationHandler.cs
+│   │   │   │   │   ├── StartProductImageGenerationResult.cs
+│   │   │   │   ├── StartProductVideoGeneration/
+│   │   │   │   │   ├── StartProductVideoGenerationCommand.cs
+│   │   │   │   │   ├── StartProductVideoGenerationCommandValidator.cs
+│   │   │   │   │   ├── StartProductVideoGenerationHandler.cs
+│   │   │   │   │   ├── StartProductVideoGenerationResult.cs
+│   │   │   ├── Integrations/
+│   │   │   │   ├── GravityDefaultSellerBootstrap.cs
+│   │   │   │   ├── IntegrationSettingsPayloadNormalizer.cs
+│   │   │   │   ├── TenantCommerceStoreModeUpdater.cs
+│   │   │   │   ├── CreateIntegration/
+│   │   │   │   │   ├── CreateIntegrationCommand.cs
+│   │   │   │   │   ├── CreateIntegrationCommandValidator.cs
+│   │   │   │   │   ├── CreateIntegrationHandler.cs
+│   │   │   │   │   ├── CreateIntegrationResult.cs
+│   │   │   │   ├── DeleteIntegration/
+│   │   │   │   │   ├── DeleteIntegrationCommand.cs
+│   │   │   │   │   ├── DeleteIntegrationHandler.cs
+│   │   │   │   │   ├── DeleteIntegrationResult.cs
+│   │   │   │   ├── GetAvailableIntegrations/
+│   │   │   │   │   ├── GetAvailableIntegrationsHandler.cs
+│   │   │   │   │   ├── GetAvailableIntegrationsQuery.cs
+│   │   │   │   ├── GetIntegration/
+│   │   │   │   │   ├── GetIntegrationHandler.cs
+│   │   │   │   │   ├── GetIntegrationQuery.cs
+│   │   │   │   │   ├── GetIntegrationResult.cs
+│   │   │   │   ├── ListIntegrations/
+│   │   │   │   │   ├── IntegrationListItem.cs
+│   │   │   │   │   ├── ListIntegrationsHandler.cs
+│   │   │   │   │   ├── ListIntegrationsQuery.cs
+│   │   │   │   │   ├── ListIntegrationsResult.cs
+│   │   │   │   ├── UpdateIntegration/
+│   │   │   │   │   ├── UpdateIntegrationCommand.cs
+│   │   │   │   │   ├── UpdateIntegrationCommandValidator.cs
+│   │   │   │   │   ├── UpdateIntegrationHandler.cs
+│   │   │   │   │   ├── UpdateIntegrationResult.cs
+│   │   │   ├── McpOAuth/
+│   │   │   │   ├── McpOAuthException.cs
+│   │   │   │   ├── Authorize/
+│   │   │   │   │   ├── McpOAuthAuthorizeHandler.cs
+│   │   │   │   │   ├── McpOAuthAuthorizeQuery.cs
+│   │   │   │   │   ├── McpOAuthAuthorizeResult.cs
+│   │   │   │   ├── AuthorizeComplete/
+│   │   │   │   │   ├── McpOAuthAuthorizeCompleteCommand.cs
+│   │   │   │   │   ├── McpOAuthAuthorizeCompleteHandler.cs
+│   │   │   │   │   ├── McpOAuthAuthorizeCompleteResult.cs
+│   │   │   │   ├── GetAuthorizationServerMetadata/
+│   │   │   │   │   ├── McpOAuthGetAuthorizationServerMetadataHandler.cs
+│   │   │   │   │   ├── McpOAuthGetAuthorizationServerMetadataQuery.cs
+│   │   │   │   ├── GetProtectedResourceMetadata/
+│   │   │   │   │   ├── McpOAuthGetProtectedResourceMetadataHandler.cs
+│   │   │   │   │   ├── McpOAuthGetProtectedResourceMetadataQuery.cs
+│   │   │   │   ├── Register/
+│   │   │   │   │   ├── McpOAuthRegisterCommand.cs
+│   │   │   │   │   ├── McpOAuthRegisterHandler.cs
+│   │   │   │   │   ├── McpOAuthRegisterResult.cs
+│   │   │   │   ├── Token/
+│   │   │   │   │   ├── McpOAuthTokenCommand.cs
+│   │   │   │   │   ├── McpOAuthTokenHandler.cs
+│   │   │   │   │   ├── McpOAuthTokenResult.cs
+│   │   │   ├── Observability/
+│   │   │   │   ├── ListChatEvents/
+│   │   │   │   │   ├── ListChatEventsHandler.cs
+│   │   │   │   │   ├── ListChatEventsQuery.cs
+│   │   │   │   │   ├── ListChatEventsResult.cs
+│   │   │   ├── Policies/
+│   │   │   │   ├── DownloadPolicyFile/
+│   │   │   │   │   ├── DownloadPolicyFileHandler.cs
+│   │   │   │   │   ├── DownloadPolicyFileQuery.cs
+│   │   │   │   │   ├── DownloadPolicyFileResult.cs
+│   │   │   │   ├── GetPolicyEvalItems/
+│   │   │   │   │   ├── GetPolicyEvalItemsHandler.cs
+│   │   │   │   │   ├── GetPolicyEvalItemsQuery.cs
+│   │   │   │   │   ├── GetPolicyEvalItemsResult.cs
+│   │   │   │   ├── GetPolicyEvalStatus/
+│   │   │   │   │   ├── GetPolicyEvalStatusHandler.cs
+│   │   │   │   │   ├── GetPolicyEvalStatusQuery.cs
+│   │   │   │   │   ├── GetPolicyEvalStatusResult.cs
+│   │   │   │   ├── GetPolicyJob/
+│   │   │   │   │   ├── GetPolicyJobHandler.cs
+│   │   │   │   │   ├── GetPolicyJobQuery.cs
+│   │   │   │   │   ├── GetPolicyJobResult.cs
+│   │   │   │   ├── ListPolicyJobEvals/
+│   │   │   │   │   ├── ListPolicyJobEvalsHandler.cs
+│   │   │   │   │   ├── ListPolicyJobEvalsQuery.cs
+│   │   │   │   │   ├── ListPolicyJobEvalsResult.cs
+│   │   │   │   ├── ListPublishedPolicies/
+│   │   │   │   │   ├── ListPublishedPoliciesHandler.cs
+│   │   │   │   │   ├── ListPublishedPoliciesQuery.cs
+│   │   │   │   │   ├── ListPublishedPoliciesResult.cs
+│   │   │   │   ├── PublishPolicy/
+│   │   │   │   │   ├── PublishPolicyCommand.cs
+│   │   │   │   │   ├── PublishPolicyCommandValidator.cs
+│   │   │   │   │   ├── PublishPolicyHandler.cs
+│   │   │   │   │   ├── PublishPolicyResult.cs
+│   │   │   │   ├── RunPolicyEval/
+│   │   │   │   │   ├── RunPolicyEvalCommand.cs
+│   │   │   │   │   ├── RunPolicyEvalHandler.cs
+│   │   │   │   │   ├── RunPolicyEvalResult.cs
+│   │   │   │   ├── SavePolicyEvalItems/
+│   │   │   │   │   ├── SavePolicyEvalItemsCommand.cs
+│   │   │   │   │   ├── SavePolicyEvalItemsCommandValidator.cs
+│   │   │   │   │   ├── SavePolicyEvalItemsHandler.cs
+│   │   │   │   │   ├── SavePolicyEvalItemsResult.cs
+│   │   │   │   ├── StartPolicyEval/
+│   │   │   │   │   ├── StartPolicyEvalCommand.cs
+│   │   │   │   │   ├── StartPolicyEvalCommandValidator.cs
+│   │   │   │   │   ├── StartPolicyEvalHandler.cs
+│   │   │   │   │   ├── StartPolicyEvalResult.cs
+│   │   │   │   ├── UploadPolicy/
+│   │   │   │   │   ├── UploadPolicyCommand.cs
+│   │   │   │   │   ├── UploadPolicyCommandValidator.cs
+│   │   │   │   │   ├── UploadPolicyHandler.cs
+│   │   │   │   │   ├── UploadPolicyResult.cs
+│   │   │   ├── Tenants/
+│   │   │   │   ├── CreateTenant/
+│   │   │   │   │   ├── CreateTenantCommand.cs
+│   │   │   │   │   ├── CreateTenantCommandValidator.cs
+│   │   │   │   │   ├── CreateTenantHandler.cs
+│   │   │   │   │   ├── CreateTenantResult.cs
+│   │   │   │   ├── GetTenant/
+│   │   │   │   │   ├── GetTenantHandler.cs
+│   │   │   │   │   ├── GetTenantQuery.cs
+│   │   │   │   │   ├── GetTenantResult.cs
+│   │   │   │   ├── ListTenants/
+│   │   │   │   │   ├── ListTenantsHandler.cs
+│   │   │   │   │   ├── ListTenantsQuery.cs
+│   │   │   │   │   ├── ListTenantsResult.cs
+│   │   │   │   │   ├── TenantListItem.cs
+│   │   │   │   ├── UpdateTenant/
+│   │   │   │   │   ├── UpdateTenantCommand.cs
+│   │   │   │   │   ├── UpdateTenantCommandValidator.cs
+│   │   │   │   │   ├── UpdateTenantHandler.cs
+│   │   │   │   │   ├── UpdateTenantResult.cs
+│   │   │   ├── Workspaces/
+│   │   │   │   ├── CreateWorkspace/
+│   │   │   │   │   ├── CreateWorkspaceCommand.cs
+│   │   │   │   │   ├── CreateWorkspaceCommandValidator.cs
+│   │   │   │   │   ├── CreateWorkspaceHandler.cs
+│   │   │   │   │   ├── CreateWorkspaceResult.cs
+│   │   │   │   ├── DeleteWorkspace/
+│   │   │   │   │   ├── DeleteWorkspaceCommand.cs
+│   │   │   │   │   ├── DeleteWorkspaceHandler.cs
+│   │   │   │   │   ├── DeleteWorkspaceResult.cs
+│   │   │   │   ├── EnsureDefaultWorkspaces/
+│   │   │   │   │   ├── EnsureDefaultWorkspacesCommand.cs
+│   │   │   │   │   ├── EnsureDefaultWorkspacesHandler.cs
+│   │   │   │   │   ├── EnsureDefaultWorkspacesResult.cs
+│   │   │   │   ├── GetWorkspace/
+│   │   │   │   │   ├── GetWorkspaceHandler.cs
+│   │   │   │   │   ├── GetWorkspaceQuery.cs
+│   │   │   │   │   ├── GetWorkspaceResult.cs
+│   │   │   │   ├── ListWorkspaces/
+│   │   │   │   │   ├── ListWorkspacesHandler.cs
+│   │   │   │   │   ├── ListWorkspacesQuery.cs
+│   │   │   │   │   ├── ListWorkspacesResult.cs
+│   │   │   │   │   ├── WorkspaceListItem.cs
+│   │   │   │   ├── UpdateWorkspace/
+│   │   │   │   │   ├── UpdateWorkspaceCommand.cs
+│   │   │   │   │   ├── UpdateWorkspaceCommandValidator.cs
+│   │   │   │   │   ├── UpdateWorkspaceHandler.cs
+│   │   │   │   │   ├── UpdateWorkspaceResult.cs
+│   ├── Commerce.Domain/
+│   │   ├── Commerce.Domain.csproj
+│   │   ├── Agents/
+│   │   │   ├── Proposal.cs
+│   │   │   ├── TenantAgentDefinition.cs
+│   │   ├── ApiKeys/
+│   │   │   ├── TenantApiKey.cs
+│   │   ├── Auth/
+│   │   │   ├── TenantOwner.cs
+│   │   ├── Billing/
+│   │   │   ├── BillingInvoice.cs
+│   │   │   ├── BillingStatus.cs
+│   │   │   ├── TenantBilling.cs
+│   │   ├── Brains/
+│   │   │   ├── BrainIngestJob.cs
+│   │   │   ├── PolicyEvaluationStatus.cs
+│   │   ├── Common/
+│   │   │   ├── BaseEntity.cs
+│   │   │   ├── ITenantScoped.cs
+│   │   │   ├── IWorkspaceScoped.cs
+│   │   ├── Integrations/
+│   │   │   ├── Integration.cs
+│   │   ├── Mcp/
+│   │   │   ├── McpOAuthAuthorizationCode.cs
+│   │   │   ├── McpOAuthClient.cs
+│   │   │   ├── McpOAuthRefreshToken.cs
+│   │   ├── Policies/
+│   │   │   ├── PolicyEvalAnswer.cs
+│   │   │   ├── PolicyEvalItem.cs
+│   │   │   ├── PolicyEvalRun.cs
+│   │   │   ├── PolicyEvalRunStatus.cs
+│   │   ├── Tenants/
+│   │   │   ├── CommerceStoreMode.cs
+│   │   │   ├── CommerceTenantInfo.cs
+│   │   ├── Workspaces/
+│   │   │   ├── Workspace.cs
+│   │   │   ├── WorkspaceEnvironment.cs
+│   ├── Commerce.Infrastructure/
+│   │   ├── Commerce.Infrastructure.csproj
+│   │   ├── DependencyInjection.cs
+│   │   ├── Accounts/
+│   │   │   ├── WorkspaceContext.cs
+│   │   ├── Agents/
+│   │   │   ├── AgentOutput.cs
+│   │   │   ├── AgentTools.cs
+│   │   │   ├── ChatTurnScope.cs
+│   │   │   ├── ExceptionLoggingAIFunction.cs
+│   │   │   ├── IAgentModule.cs
+│   │   │   ├── McpToolInvoker.cs
+│   │   │   ├── RecordingProposalExecutor.cs
+│   │   │   ├── RequiredPredecessorTool.cs
+│   │   │   ├── ToolCallTurn.cs
+│   │   │   ├── WorkflowPayload.cs
+│   │   │   ├── Definitions/
+│   │   │   │   ├── BrandManager/
+│   │   │   │   │   ├── BrandManagerAgent.cs
+│   │   │   │   ├── BuyerSwitch/
+│   │   │   │   │   ├── BuyerIntent.cs
+│   │   │   │   │   ├── BuyerSwitchWorkflow.cs
+│   │   │   │   ├── CategoryManager/
+│   │   │   │   │   ├── CategoryManagerAgent.cs
+│   │   │   │   ├── Checkout/
+│   │   │   │   │   ├── CheckoutAgent.cs
+│   │   │   │   │   ├── Tools/
+│   │   │   │   │   │   ├── CreateOrderDraftTool.cs
+│   │   │   │   ├── CorporateFaq/
+│   │   │   │   │   ├── CorporateFaqAgent.cs
+│   │   │   │   ├── DiscoveryAndCart/
+│   │   │   │   │   ├── CatalogSnapshotLookup.cs
+│   │   │   │   │   ├── DiscoveryAndCartAgent.cs
+│   │   │   │   │   ├── DiscoveryCatalogSearch.cs
+│   │   │   │   │   ├── Tools/
+│   │   │   │   │   │   ├── AddItemTool.cs
+│   │   │   │   │   │   ├── ApplyCouponTool.cs
+│   │   │   │   │   │   ├── CartCheckoutTool.cs
+│   │   │   │   │   │   ├── CartToolSupport.cs
+│   │   │   │   │   │   ├── CompareProductsTool.cs
+│   │   │   │   │   │   ├── CreateCartTool.cs
+│   │   │   │   │   │   ├── GetCartTool.cs
+│   │   │   │   │   │   ├── GetProductDetailsTool.cs
+│   │   │   │   │   │   ├── RemoveCouponTool.cs
+│   │   │   │   │   │   ├── RemoveItemTool.cs
+│   │   │   │   │   │   ├── SearchProductsTool.cs
+│   │   │   │   │   │   ├── UpdateItemQtyTool.cs
+│   │   │   │   ├── Fulfillment/
+│   │   │   │   │   ├── FulfillmentAgent.cs
+│   │   │   │   ├── Generative/
+│   │   │   │   │   ├── GenerativeFichaCatalog.cs
+│   │   │   │   │   ├── GenerativeLlm.cs
+│   │   │   │   ├── OperationsAdvisor/
+│   │   │   │   │   ├── OperationsAdvisorAgent.cs
+│   │   │   │   │   ├── Tools/
+│   │   │   │   │   │   ├── GetClaimsBreakdownTool.cs
+│   │   │   │   │   │   ├── GetKpiTool.cs
+│   │   │   │   │   │   ├── GetMarketplaceHealthTool.cs
+│   │   │   │   │   │   ├── GetOrdersDelayedTool.cs
+│   │   │   │   │   │   ├── ProposeFixTool.cs
+│   │   │   │   ├── PaymentWebhook/
+│   │   │   │   │   ├── PaymentWebhookAgent.cs
+│   │   │   │   ├── PostSalesSupport/
+│   │   │   │   │   ├── PostSalesSupportAgent.cs
+│   │   │   │   │   ├── Tools/
+│   │   │   │   │   │   ├── CheckCarrierTool.cs
+│   │   │   │   │   │   ├── CreateReturnTool.cs
+│   │   │   │   │   │   ├── GetOrderTimelineTool.cs
+│   │   │   │   │   │   ├── SearchPoliciesTool.cs
+│   │   │   │   ├── ProductContentByImageGenerator/
+│   │   │   │   │   ├── ProductContentByImageGeneratorAgent.cs
+│   │   │   │   ├── ProductContentGenerator/
+│   │   │   │   │   ├── ProductContentGeneratorAgent.cs
+│   │   │   │   ├── ProductImageGenerator/
+│   │   │   │   │   ├── ProductImageGeneratorAgent.cs
+│   │   │   │   ├── ProductManager/
+│   │   │   │   │   ├── ImageAnalyzeTool.cs
+│   │   │   │   │   ├── ProductManagerAgent.cs
+│   │   │   │   ├── ProductOnboardingCoordinator/
+│   │   │   │   │   ├── ProductOnboardingCoordinatorAgent.cs
+│   │   │   │   │   ├── ProductOnboardingCoordinatorService.cs
+│   │   │   │   │   ├── RedisOnboardingImageStore.cs
+│   │   │   │   │   ├── RedisOnboardingWorkflowStore.cs
+│   │   │   │   ├── ProductVideoGenerator/
+│   │   │   │   │   ├── ProductVideoGeneratorAgent.cs
+│   │   │   ├── Engines/
+│   │   │   │   ├── AgentChatSupport.cs
+│   │   │   │   ├── AgentRuntime.cs
+│   │   │   │   ├── BuyerSwitchChatEngine.cs
+│   │   │   │   ├── HandoffTriageChatEngine.cs
+│   │   │   │   ├── IChatTurnEngine.cs
+│   │   │   ├── Events/
+│   │   │   │   ├── AzureAgentGenerationAuditStore.cs
+│   │   │   │   ├── AzureChatEventTableStore.cs
+│   │   │   │   ├── ChatEventsAIContextProvider.cs
+│   │   │   │   ├── QueueAgentGenerationAuditPublisher.cs
+│   │   │   │   ├── QueueChatEventPublisher.cs
+│   │   │   ├── GravityCatalog/
+│   │   │   │   ├── GravityAgentContext.cs
+│   │   │   ├── History/
+│   │   │   │   ├── AzureChatThreadStore.cs
+│   │   │   │   ├── RedisChatHistoryProvider.cs
+│   │   │   │   ├── RedisChatThreadStore.cs
+│   │   │   ├── Metadata/
+│   │   │   │   ├── AgentDefinitionMapper.cs
+│   │   │   │   ├── AgentDefinitionStore.cs
+│   │   │   │   ├── AgentYamlConverters.cs
+│   │   │   │   ├── AgentYamlDocument.cs
+│   │   │   │   ├── ToolCatalogService.cs
+│   │   │   │   ├── YamlDescribedAIFunction.cs
+│   │   │   ├── Profile/
+│   │   │   │   ├── AzureSessionBuyerProfileStore.cs
+│   │   │   │   ├── RedisSessionBuyerProfileStore.cs
+│   │   │   │   ├── SessionBuyerProfileAIContextProvider.cs
+│   │   │   │   ├── SessionBuyerProfileToolHooks.cs
+│   │   │   │   ├── SessionBuyerProfileUpdater.cs
+│   │   │   ├── Tools/
+│   │   │   │   ├── CatalogTools.cs
+│   │   │   │   ├── KpiTools.cs
+│   │   │   │   ├── OrderTools.cs
+│   │   │   │   ├── UnavailableCatalogDataService.cs
+│   │   ├── Auth/
+│   │   │   ├── AuthSigningKeys.cs
+│   │   │   ├── HmacAccessTokenIssuer.cs
+│   │   │   ├── HmacAccessTokenValidator.cs
+│   │   │   ├── Pbkdf2PasswordHasher.cs
+│   │   ├── Brains/
+│   │   │   ├── BrainPipeline.cs
+│   │   │   ├── BrainProfileRegistry.cs
+│   │   │   ├── LocalBrainDocumentParser.cs
+│   │   │   ├── LocalBrainRawStore.cs
+│   │   ├── DataIngestion/
+│   │   │   ├── AzureDataIngestPayloadBlobStore.cs
+│   │   │   ├── AzureDataIngestTableStore.cs
+│   │   ├── EventStreams/
+│   │   │   ├── AgentStreamEventAppender.cs
+│   │   │   ├── AzureEventStreamStore.cs
+│   │   │   ├── EventStreamWriter.cs
+│   │   ├── Integrations/
+│   │   │   ├── GravityStoreDataClient.cs
+│   │   │   ├── IntegrationsMetadataService.cs
+│   │   │   ├── MeetGravityHeadlessClient.cs
+│   │   │   ├── MeetGravityStoreProvisioner.cs
+│   │   ├── Mcp/
+│   │   │   ├── DbMcpOAuthStore.cs
+│   │   │   ├── McpTokenService.cs
+│   │   │   ├── OAuthWellKnownPaths.cs
+│   │   ├── Messaging/
+│   │   │   ├── AzureStorageMessageQueue.cs
+│   │   │   ├── InMemoryMessageQueue.cs
+│   │   │   ├── RabbitMqMessageQueue.cs
+│   │   │   ├── WorkflowHostedService.cs
+│   │   ├── Policies/
+│   │   │   ├── PolicyBrainProfile.cs
+│   │   │   ├── PolicyEvalCatalog.cs
+│   │   │   ├── PolicyEvalModel.cs
+│   │   │   ├── PolicyEvalSearch.cs
+│   │   ├── Speech/
+│   │   │   ├── AzureSpeechTranscriber.cs
+│   │   ├── Tours/
+│   │   │   ├── ToursMetadataService.cs
+│   │   ├── Vectors/
+│   │   │   ├── VectorIndexBootstrap.cs
+│   │   │   ├── AzureSearch/
+│   │   │   │   ├── AzureSearchBrainIndex.cs
+│   │   │   │   ├── AzureSearchBrainSchemas.cs
+│   │   │   │   ├── AzureSearchProductsIndex.cs
+│   │   │   │   ├── AzureSearchProductsSchemas.cs
+│   │   │   ├── Common/
+│   │   │   │   ├── AzureOpenAiCompatibleClient.cs
+│   │   │   │   ├── AzureOpenAiImageVerbalizer.cs
+│   │   │   │   ├── AzureOpenAiTextEmbeddingService.cs
+│   │   │   │   ├── CatalogImageVectorService.cs
+│   │   │   │   ├── EmptyBrainIndex.cs
+│   │   │   │   ├── EmptyCatalogBrainIndex.cs
+│   │   │   │   ├── InMemoryVectorStore.cs
+│   │   │   │   ├── NullCatalogImageVectorService.cs
+│   │   │   │   ├── NullImageVerbalizer.cs
+│   │   │   │   ├── PlaceholderEmbeddingGenerator.cs
+│   │   │   │   ├── RrfFusion.cs
+│   │   │   ├── Qdrant/
+│   │   │   │   ├── QdrantBrainIndex.cs
+│   │   │   │   ├── QdrantProductsIndex.cs
+│   │   │   │   ├── QdrantVectorStore.cs
+│   │   ├── Yaml/
+│   │   │   ├── YamlDataPaths.cs
+│   │   │   ├── YamlMetadataService.cs
+│   ├── Commerce.Infrastructure.Persistence/
+│   │   ├── Commerce.Infrastructure.Persistence.csproj
+│   │   ├── CommerceDbContextBase.cs
+│   │   ├── DependencyInjection.cs
+│   │   ├── DesignTimeConfiguration.cs
+│   │   ├── DesignTimeDbContextFactories.cs
+│   │   ├── EfTenantStore.cs
+│   │   ├── PostgresCommerceDbContext.cs
+│   │   ├── PostgresCommerceTenantStoreDbContext.cs
+│   │   ├── SqlServerCommerceDbContext.cs
+│   │   ├── SqlServerCommerceTenantStoreDbContext.cs
+│   │   ├── TenantBootstrap.cs
+│   │   ├── Configurations/
+│   │   │   ├── BillingInvoiceConfiguration.cs
+│   │   │   ├── BrainIngestJobConfiguration.cs
+│   │   │   ├── IntegrationConfiguration.cs
+│   │   │   ├── McpOAuthConfigurations.cs
+│   │   │   ├── PolicyEvalAnswerConfiguration.cs
+│   │   │   ├── PolicyEvalItemConfiguration.cs
+│   │   │   ├── PolicyEvalRunConfiguration.cs
+│   │   │   ├── ProposalConfiguration.cs
+│   │   │   ├── TenantAgentDefinitionConfiguration.cs
+│   │   │   ├── TenantApiKeyConfiguration.cs
+│   │   │   ├── TenantBillingConfiguration.cs
+│   │   │   ├── TenantOwnerConfiguration.cs
+│   │   │   ├── WorkspaceConfiguration.cs
+│   │   ├── Migrations/
+│   │   │   ├── App/
+│   │   │   │   ├── Postgres/
+│   │   │   │   │   ├── 20260918002947_InitialApp.Designer.cs
+│   │   │   │   │   ├── 20260918002947_InitialApp.cs
+│   │   │   │   │   ├── 20260923142146_AddWorkspaceIdScoping.Designer.cs
+│   │   │   │   │   ├── 20260923142146_AddWorkspaceIdScoping.cs
+│   │   │   │   │   ├── PostgresCommerceDbContextModelSnapshot.cs
+│   │   │   │   ├── SqlServer/
+│   │   │   │   │   ├── 20260918002942_InitialApp.Designer.cs
+│   │   │   │   │   ├── 20260918002942_InitialApp.cs
+│   │   │   │   │   ├── 20260923142205_AddWorkspaceIdScoping.Designer.cs
+│   │   │   │   │   ├── 20260923142205_AddWorkspaceIdScoping.cs
+│   │   │   │   │   ├── SqlServerCommerceDbContextModelSnapshot.cs
+│   │   │   ├── TenantStore/
+│   │   │   │   ├── Postgres/
+│   │   │   │   │   ├── 20260918002938_InitialTenantStore.Designer.cs
+│   │   │   │   │   ├── 20260918002938_InitialTenantStore.cs
+│   │   │   │   │   ├── 20260918212342_AddCommerceStoreMode.Designer.cs
+│   │   │   │   │   ├── 20260918212342_AddCommerceStoreMode.cs
+│   │   │   │   │   ├── PostgresCommerceTenantStoreDbContextModelSnapshot.cs
+│   │   │   │   ├── SqlServer/
+│   │   │   │   │   ├── 20260918002934_InitialTenantStore.Designer.cs
+│   │   │   │   │   ├── 20260918002934_InitialTenantStore.cs
+│   │   │   │   │   ├── 20260918212337_AddCommerceStoreMode.Designer.cs
+│   │   │   │   │   ├── 20260918212337_AddCommerceStoreMode.cs
+│   │   │   │   │   ├── SqlServerCommerceTenantStoreDbContextModelSnapshot.cs
+│   │   ├── Seed/
+│   │   │   ├── DefaultTenantSeeder.cs
+│   │   │   ├── TenantProvisioner.cs
+│   ├── Commerce.Mcp/
+│   │   ├── Commerce.Mcp.csproj
+│   │   ├── Program.cs
+│   │   ├── appsettings.Development.json
+│   │   ├── appsettings.json
+│   │   ├── Mcp/
+│   │   │   ├── McpOAuthEndpoints.cs
+│   │   │   ├── McpToolsHandler.cs
+│   │   ├── Middleware/
+│   │   │   ├── ApiKeyAuthenticationMiddleware.cs
+│   │   ├── Properties/
+│   │   │   ├── launchSettings.json
+│   ├── Commerce.Shop/
+│   │   ├── Commerce.Shop.csproj
+│   │   ├── Program.cs
+│   │   ├── appsettings.json
+│   │   ├── Properties/
+│   │   │   ├── launchSettings.json
+│   ├── Commerce.Web/
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── postcss.config.js
+│   │   ├── tailwind.config.js
+│   │   ├── vite.config.js
+│   │   ├── vite.embed.config.js
+│   │   ├── public/
+│   │   │   ├── staticwebapp.config.json
+│   │   │   ├── brand/
+│   │   │   ├── docs/
+│   │   │   │   ├── screenshots/
+│   │   │   ├── icons/
+│   │   │   ├── images/
+│   │   │   ├── logos/
+│   │   │   ├── screenshots/
+│   │   ├── scripts/
+│   │   │   ├── verify-build-env.js
+│   │   ├── src/
+│   │   │   ├── App.vue
+│   │   │   ├── embed.js
+│   │   │   ├── main.js
+│   │   │   ├── sw.js
+│   │   │   ├── components/
+│   │   │   │   ├── AppHeader.vue
+│   │   │   │   ├── AuthSidePanel.vue
+│   │   │   │   ├── ConfirmModal.vue
+│   │   │   │   ├── ExpandableDescription.vue
+│   │   │   │   ├── FloatingTooltip.vue
+│   │   │   │   ├── FormToggle.vue
+│   │   │   │   ├── JsonEditor.vue
+│   │   │   │   ├── JsonToggle.vue
+│   │   │   │   ├── PwaUpdateBanner.vue
+│   │   │   │   ├── ResourceNotFound.vue
+│   │   │   │   ├── SearchableSelect.vue
+│   │   │   │   ├── SelectCheckboxDropdown.vue
+│   │   │   │   ├── ThemeToggle.vue
+│   │   │   │   ├── admin/
+│   │   │   │   │   ├── MemberPermissionGate.vue
+│   │   │   │   │   ├── MemberPermissionsChecklist.vue
+│   │   │   │   │   ├── MemberPermissionsSkeleton.vue
+│   │   │   │   │   ├── MemberPermissionsViewer.vue
+│   │   │   │   ├── billing/
+│   │   │   │   │   ├── ContactSalesModal.vue
+│   │   │   │   ├── catalog/
+│   │   │   │   │   ├── CatalogCreateProductSlider.vue
+│   │   │   │   │   ├── CatalogDataCsvToolbar.vue
+│   │   │   │   │   ├── CatalogProductDeleteConfirmModal.vue
+│   │   │   │   │   ├── CatalogProductDetailSlider.vue
+│   │   │   │   │   ├── ProductOnboardingSlider.vue
+│   │   │   │   ├── chat/
+│   │   │   │   │   ├── ChatWidget.vue
+│   │   │   │   ├── common/
+│   │   │   │   │   ├── ActionIconButton.vue
+│   │   │   │   ├── dashboard/
+│   │   │   │   │   ├── DashboardChartBar.vue
+│   │   │   │   │   ├── DashboardChartDoughnut.vue
+│   │   │   │   │   ├── DashboardKpiCard.vue
+│   │   │   │   ├── home/
+│   │   │   │   │   ├── ClientConnectionsSvg.vue
+│   │   │   │   │   ├── McpArchitectureSvg.vue
+│   │   │   │   ├── integrations/
+│   │   │   │   │   ├── IntegrationApiForm.vue
+│   │   │   │   │   ├── IntegrationConnectEditSlideOvers.vue
+│   │   │   │   │   ├── MandatoryStoreConnectionModal.vue
+│   │   │   │   │   ├── NoIntegrationsMessage.vue
+│   │   │   │   ├── kutria/
+│   │   │   │   │   ├── KutriaMark.vue
+│   │   │   │   │   ├── OpsDemo.vue
+│   │   │   │   │   ├── SalesDemo.vue
+│   │   │   │   ├── mcp/
+│   │   │   │   │   ├── ArgumentsFormArray.vue
+│   │   │   │   │   ├── ClientIcon.vue
+│   │   │   │   │   ├── ExecuteToolSlider.vue
+│   │   │   │   │   ├── ManualOutputPathsFormArray.vue
+│   │   │   │   │   ├── McpHowToConnect.vue
+│   │   │   │   │   ├── McpPromptPreviewSlider.vue
+│   │   │   │   │   ├── ToolInputSchemaFieldsForm.vue
+│   │   │   │   │   ├── ToolOutputPropertiesSection.vue
+│   │   │   │   ├── observability/
+│   │   │   │   │   ├── ObservabilityOutboxDetailSlider.vue
+│   │   │   │   ├── onboarding/
+│   │   │   │   │   ├── OnboardingTourModal.vue
+│   │   │   │   ├── store/
+│   │   │   │   │   ├── AdminStoreAttributeFormSlider.vue
+│   │   │   │   │   ├── AdminStoreBrandFormSlider.vue
+│   │   │   │   │   ├── AdminStoreCategoryFormSlider.vue
+│   │   │   │   │   ├── AdminStoreCategoryTreeRows.vue
+│   │   │   │   │   ├── AdminStoreProductFormSlider.vue
+│   │   │   │   │   ├── ProductCategoryTreePick.vue
+│   │   │   │   │   ├── ProductCreateAiImagesModal.vue
+│   │   │   │   │   ├── ProductCreateCompletenessPanel.vue
+│   │   │   │   │   ├── ProductCreateContentImproveModal.vue
+│   │   │   │   │   ├── ProductCreateImageGenerateModal.vue
+│   │   │   │   │   ├── ProductCreateVariationsPanel.vue
+│   │   │   │   │   ├── ProductCreateVideoUgcModal.vue
+│   │   │   │   │   ├── StoreCatalogListSkeleton.vue
+│   │   │   │   │   ├── StoreConnectionRequired.vue
+│   │   │   │   │   ├── StoreDetailSlider.vue
+│   │   │   │   │   ├── StoreIntegrationCards.vue
+│   │   │   │   │   ├── StoreListSkeleton.vue
+│   │   │   │   │   ├── StoreOrdersListSkeleton.vue
+│   │   │   │   │   ├── attributeSpecTypes.js
+│   │   │   │   ├── usage/
+│   │   │   │   │   ├── PlanLimitAlert.vue
+│   │   │   │   │   ├── UsageCard.vue
+│   │   │   │   ├── workflow/
+│   │   │   │   │   ├── ActionNode.vue
+│   │   │   │   │   ├── AddActionModal.vue
+│   │   │   │   │   ├── ConditionalNode.vue
+│   │   │   │   │   ├── EditAggregatedOutputModal.vue
+│   │   │   │   │   ├── EditConditionalModal.vue
+│   │   │   │   │   ├── EditStartInputModal.vue
+│   │   │   │   │   ├── GLOSARIO-WORKFLOW.md
+│   │   │   │   │   ├── ImportWorkflowModal.vue
+│   │   │   │   │   ├── OutputSchemaReturnTree.vue
+│   │   │   │   │   ├── StartNode.vue
+│   │   │   │   │   ├── WorkflowControls.vue
+│   │   │   │   │   ├── WorkflowEditor.vue
+│   │   │   │   │   ├── WorkflowStepNode.vue
+│   │   │   ├── composables/
+│   │   │   │   ├── useAccountUsage.js
+│   │   │   │   ├── useAdminPaths.js
+│   │   │   │   ├── useCatalogPipelineContext.js
+│   │   │   │   ├── useCatalogProductListDelete.js
+│   │   │   │   ├── useDashboardChartTheme.js
+│   │   │   │   ├── useDataPipelineStagingAndRuns.js
+│   │   │   │   ├── useDeclarativePublishRules.js
+│   │   │   │   ├── useGenerativeRun.js
+│   │   │   │   ├── useIntegrationFormValidation.js
+│   │   │   │   ├── useIntegrationTab.js
+│   │   │   │   ├── useMemberPermissions.js
+│   │   │   │   ├── useOnboardingTour.js
+│   │   │   │   ├── usePartnerProgramView.js
+│   │   │   │   ├── usePollEventTransport.js
+│   │   │   │   ├── usePushNotifications.js
+│   │   │   │   ├── usePwaInstall.js
+│   │   │   │   ├── useScrollReveal.js
+│   │   │   │   ├── useSettings.js
+│   │   │   │   ├── useSseEventTransport.js
+│   │   │   │   ├── useTheme.js
+│   │   │   ├── constants/
+│   │   │   │   ├── memberPermissions.js
+│   │   │   ├── layouts/
+│   │   │   │   ├── AdminLayout.vue
+│   │   │   │   ├── PublicDocsLayout.vue
+│   │   │   │   ├── adminNav/
+│   │   │   │   │   ├── AdminNavIcon.vue
+│   │   │   │   │   ├── adminSidebarMenus.ts
+│   │   │   ├── pwa/
+│   │   │   │   ├── register.js
+│   │   │   ├── router/
+│   │   │   │   ├── adminChildren.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── memberPermissionGuard.js
+│   │   │   ├── services/
+│   │   │   │   ├── accountNotificationService.js
+│   │   │   │   ├── api.js
+│   │   │   │   ├── meliChartCreateBodyFromWizardGrid.js
+│   │   │   │   ├── meliFootwearUsToEuApprox.js
+│   │   │   │   ├── meliGridsTechnicalSpecsParser.js
+│   │   │   │   ├── meliMappingDraftStorage.js
+│   │   │   │   ├── meliSizeChartFriendlyName.js
+│   │   │   │   ├── meliSizeChartGuideDraftStorage.js
+│   │   │   │   ├── meliSizeChartMatrixCsv.js
+│   │   │   │   ├── meliSizeChartRowAutofill.js
+│   │   │   │   ├── meliSuggestedEuSizesByGender.js
+│   │   │   │   ├── orderOriginWizardStorage.js
+│   │   │   │   ├── pushNotificationService.js
+│   │   │   │   ├── toolPayload.js
+│   │   │   │   ├── useCaseTemplateBatch.js
+│   │   │   ├── stores/
+│   │   │   │   ├── appStore.js
+│   │   │   │   ├── brainPipelineStore.js
+│   │   │   │   ├── pwaStore.js
+│   │   │   │   ├── tenantStore.js
+│   │   │   ├── utils/
+│   │   │   │   ├── catalogCanonicalDraft.js
+│   │   │   │   ├── catalogImportTypes.js
+│   │   │   │   ├── collectionFingerprint.js
+│   │   │   │   ├── eventBus.js
+│   │   │   │   ├── eventTransport.js
+│   │   │   │   ├── integrationCatalogTabs.js
+│   │   │   │   ├── integrationConnectEditRegistry.js
+│   │   │   │   ├── jwtUtils.js
+│   │   │   │   ├── mcpPromptArgumentSync.js
+│   │   │   │   ├── outputSchema.js
+│   │   │   │   ├── outputSchemaTree.js
+│   │   │   │   ├── parseCatalogImportFile.js
+│   │   │   │   ├── parseFileColumns.js
+│   │   │   │   ├── partnerCookie.js
+│   │   │   │   ├── planLimits.js
+│   │   │   │   ├── productCreateGenerativeDraft.js
+│   │   │   │   ├── productCreateImageDraft.js
+│   │   │   │   ├── tenant.js
+│   │   │   │   ├── workflow.js
+│   │   │   ├── views/
+│   │   │   │   ├── admin/
+│   │   │   │   │   ├── AdminAccounts.vue
+│   │   │   │   │   ├── AdminApiKeys.vue
+│   │   │   │   │   ├── AdminBilling.vue
+│   │   │   │   │   ├── AdminChangePassword.vue
+│   │   │   │   │   ├── AdminDashboardView.vue
+│   │   │   │   │   ├── AdminEmbed.vue
+│   │   │   │   │   ├── AdminEnvironmentVariables.vue
+│   │   │   │   │   ├── AdminMembers.vue
+│   │   │   │   │   ├── AdminObservability.vue
+│   │   │   │   │   ├── AdminObservabilityChatEventsView.vue
+│   │   │   │   │   ├── AdminObservabilityOutboxView.vue
+│   │   │   │   │   ├── AdminObservabilityPublishBatchJobs.vue
+│   │   │   │   │   ├── AdminObservabilityWebhooksOutView.vue
+│   │   │   │   │   ├── AdminOutboundWebhooks.vue
+│   │   │   │   │   ├── AdminPartners.vue
+│   │   │   │   │   ├── AdminPolicies.vue
+│   │   │   │   │   ├── AdminProfile.vue
+│   │   │   │   │   ├── AdminStoreAttributes.vue
+│   │   │   │   │   ├── AdminStoreBrands.vue
+│   │   │   │   │   ├── AdminStoreCatalog.vue
+│   │   │   │   ├── agents/
+│   │   │   │   ├── auth/
+│   │   │   │   │   ├── ConfirmEmail.vue
+│   │   │   │   │   ├── ForgotPassword.vue
+│   │   │   │   │   ├── ResendConfirmation.vue
+│   │   │   │   │   ├── ResetPassword.vue
+│   │   │   │   │   ├── SignIn.vue
+│   │   │   │   │   ├── SignUp.vue
+│   │   │   │   │   ├── SocialLoginCallback.vue
+│   │   │   │   ├── billing/
+│   │   │   │   │   ├── PricingPlans.vue
+│   │   │   │   ├── home/
+│   │   │   │   │   ├── Home.vue
+│   │   │   │   ├── integrations/
+│   │   │   │   │   ├── IntegrationOAuthCallback.vue
+│   │   │   │   │   ├── Integrations.vue
+│   │   │   │   │   ├── IntegrationsPublicationsMatrixView.vue
+│   │   │   │   ├── invitations/
+│   │   │   │   │   ├── AcceptInvitation.vue
+│   │   │   │   ├── mcp/
+│   │   │   │   │   ├── AdminMcpConnect.vue
+│   │   │   │   │   ├── AdminMcpDetail.vue
+│   │   │   │   │   ├── AdminMcpPromptForm.vue
+│   │   │   │   │   ├── AdminMcpResourceForm.vue
+│   │   │   │   │   ├── AdminMcpSnippets.vue
+│   │   │   │   │   ├── AdminMcpTemplateForm.vue
+│   │   │   │   │   ├── AdminMcpTemplates.vue
+│   │   │   │   │   ├── AdminMcpToolForm.vue
+│   │   │   │   │   ├── AdminMcps.vue
+│   │   │   │   │   ├── McpOAuthConsent.vue
+│   │   │   │   ├── monitor/
+│   │   │   │   │   ├── WebhookMonitor.vue
+│   │   │   │   ├── partner/
+│   │   │   │   │   ├── PartnerAccountMetrics.vue
+│   │   │   │   │   ├── PartnerProgramAccounts.vue
+│   │   │   │   ├── public/
+│   │   │   │   │   ├── docs/
+│   │   │   │   │   │   ├── DocJsonSchemaBlock.vue
+│   │   │   │   │   │   ├── DocMermaidBlock.vue
+│   │   │   │   │   │   ├── DocView.vue
+│   │   │   │   │   │   ├── admin/
+│   │   │   │   ├── shared/
+│   │   │   │   │   ├── AdminNotFound.vue
+│   │   │   │   │   ├── Forbidden.vue
+│   │   │   │   │   ├── NotFound.vue
+│   ├── Commerce.Worker/
+│   │   ├── Commerce.Worker.csproj
+│   │   ├── Program.cs
+│   │   ├── appsettings.Development.json
+│   │   ├── appsettings.json
+│   │   ├── Properties/
+│   │   │   ├── launchSettings.json
+│   │   ├── Workers/
+│   │   │   ├── AgentGenerationAuditWorker.cs
+│   │   │   ├── BrainIngestWorker.cs
+│   │   │   ├── CatalogImageVectorIngestWorker.cs
+│   │   │   ├── CatalogVectorIngestWorker.cs
+│   │   │   ├── ChatEventsWorker.cs
+│   │   │   ├── DataIngestWorker.cs
+│   │   │   ├── EventStreamGcWorker.cs
+│   │   │   ├── PolicyEvalWorker.cs
+
+--- RESUMEN ---
+Archivos .cs: 641
+Archivos .vue: 144
+Archivos .ts: 1
+Total archivos codigo:      883

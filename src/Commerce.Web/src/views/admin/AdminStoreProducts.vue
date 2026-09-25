@@ -187,6 +187,7 @@
   </div>
 </template>
 
+
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -206,6 +207,28 @@ const rowCount = ref(0)
 const deletingId = ref(null)
 const pendingDelete = ref(null)
 const deleteConfirmOpen = ref(false)
+
+
+const confirmImproveWithAI = async () => {
+  if (!form.name.trim()) {
+    alert('Pon un nombre primero')
+    return
+  }
+  const ok = window.confirm(`¿Mejorar "${form.name.trim()}" con IA? Esto consume créditos.`)
+  if (!ok) return
+  // Llama a tu función original que sí existe
+  await startContentByName()
+}
+
+const confirmGenerateWithAI = async () => {
+  if (!primaryImageUrl.value && !imageFile.value) {
+    alert('Sube una foto primero')
+    return
+  }
+  const ok = window.confirm('¿Generar ficha desde foto con IA? Esto consume créditos.')
+  if (!ok) return
+  await startContentByImage()
+}
 
 const deleteConfirmMessage = computed(() => {
   const p = pendingDelete.value

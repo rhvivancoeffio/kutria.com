@@ -1,10 +1,12 @@
 import { rememberedTenant, resolveTenantSlug } from '@/utils/tenant'
 
 const STORAGE_PREFIX = 'commerce:product-create:generative:'
+const ACTIVE_WORKSPACE_KEY = 'active_workspace_id'
 
 function storageKey() {
-  const tenant = resolveTenantSlug() || rememberedTenant() || 'default'
-  return `${STORAGE_PREFIX}${tenant}`
+  const tenant = (resolveTenantSlug() || rememberedTenant() || 'default').toLowerCase()
+  const workspace = (localStorage.getItem(ACTIVE_WORKSPACE_KEY) || 'default').toLowerCase()
+  return `${STORAGE_PREFIX}${tenant}:${workspace}`
 }
 
 /**

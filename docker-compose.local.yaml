@@ -37,7 +37,7 @@ services:
       retries: 10
 
   commerce.sql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: mcr.microsoft.com/azure-sql-edge
     profiles: ["sqlserver"] # only when DB_PROVIDER=SqlServer
     environment:
       ACCEPT_EULA: "Y"
@@ -160,9 +160,6 @@ services:
     build:
       context: .
       dockerfile: src/Commerce.Web/Dockerfile
-      target: build # o cambia el COPY para usar nginx.dev.conf en dev
-    volumes:
-    - ./src/Commerce.Web/nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
       - "3000:80"
     depends_on:

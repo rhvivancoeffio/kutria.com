@@ -37,6 +37,7 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     TenantId = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
+                    WorkspaceId = table.Column<Guid>(type: "uuid", nullable: true),
                     BrainKey = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
                     FileName = table.Column<string>(type: "character varying(260)", maxLength: 260, nullable: false),
                     StorageKey = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
@@ -135,6 +136,7 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     TenantId = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
+                    WorkspaceId = table.Column<Guid>(type: "uuid", nullable: true),
                     BaseItemId = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: true),
                     Type = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
                     Question = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
@@ -153,6 +155,7 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     TenantId = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
+                    WorkspaceId = table.Column<Guid>(type: "uuid", nullable: true),
                     JobId = table.Column<Guid>(type: "uuid", nullable: false),
                     TemplateVersion = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
                     Status = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
@@ -215,6 +218,7 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     TenantId = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
+                    WorkspaceId = table.Column<Guid>(type: "uuid", nullable: true),
                     Name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     KeyPrefix = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
                     KeyHash = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
@@ -317,9 +321,9 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_BrainIngestJobs_TenantId_BrainKey_Status",
+                name: "IX_BrainIngestJobs_TenantId_WorkspaceId_BrainKey_Status",
                 table: "BrainIngestJobs",
-                columns: new[] { "TenantId", "BrainKey", "Status" });
+                columns: new[] { "TenantId", "WorkspaceId", "BrainKey", "Status" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Integrations_TenantId",
@@ -347,14 +351,14 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 column: "RunId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PolicyEvalItems_TenantId_BaseItemId",
+                name: "IX_PolicyEvalItems_TenantId_WorkspaceId_BaseItemId",
                 table: "PolicyEvalItems",
-                columns: new[] { "TenantId", "BaseItemId" });
+                columns: new[] { "TenantId", "WorkspaceId", "BaseItemId" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PolicyEvalRuns_TenantId_JobId_CreatedAt",
+                name: "IX_PolicyEvalRuns_TenantId_WorkspaceId_JobId_CreatedAt",
                 table: "PolicyEvalRuns",
-                columns: new[] { "TenantId", "JobId", "CreatedAt" });
+                columns: new[] { "TenantId", "WorkspaceId", "JobId", "CreatedAt" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Proposals_TenantId_Status",
@@ -374,9 +378,9 @@ namespace Commerce.Infrastructure.Persistence.Migrations.App.Postgres
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_TenantApiKeys_TenantId",
+                name: "IX_TenantApiKeys_TenantId_WorkspaceId",
                 table: "TenantApiKeys",
-                column: "TenantId");
+                columns: new[] { "TenantId", "WorkspaceId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TenantBillings_TenantId",
